@@ -1,0 +1,174 @@
+{
+  "report": {
+    "status": "found",
+    "size": 26123,
+    "word_count": 2916
+  },
+  "packet_tracer": {
+    "files": {
+      "campus_network.pkt": {
+        "status": "found",
+        "size": 2984
+      },
+      "enterprise_network.pkt": {
+        "status": "found",
+        "size": 5916
+      },
+      "datacenter_network.pkt": {
+        "status": "found",
+        "size": 2195
+      },
+      "simple_test_network.pkt": {
+        "status": "found",
+        "size": 6430
+      }
+    },
+    "total_found": 4
+  },
+  "test_results": {
+    "scenarios": {
+      "campus": {
+        "test_report.txt": {
+          "status": "found",
+          "size": 1123
+        },
+        "test_results.json": {
+          "status": "found",
+          "size": 5903
+        },
+        "test_report.html": {
+          "status": "found",
+          "size": 3287
+        },
+        "network_topology.png": {
+          "status": "found",
+          "size": 132347
+        }
+      },
+      "enterprise": {
+        "test_report.txt": {
+          "status": "found",
+          "size": 1134
+        },
+        "test_results.json": {
+          "status": "found",
+          "size": 9941
+        },
+        "test_report.html": {
+          "status": "found",
+          "size": 3259
+        },
+        "network_topology.png": {
+          "status": "found",
+          "size": 184520
+        }
+      },
+      "datacenter": {
+        "test_report.txt": {
+          "status": "found",
+          "size": 1092
+        },
+        "test_results.json": {
+          "status": "found",
+          "size": 4880
+        },
+        "test_report.html": {
+          "status": "found",
+          "size": 3256
+        },
+        "network_topology.png": {
+          "status": "found",
+          "size": 123565
+        }
+      },
+      "simple": {
+        "test_report.txt": {
+          "status": "found",
+          "size": 1327
+        },
+        "test_results.json": {
+          "status": "found",
+          "size": 11722
+        },
+        "test_report.html": {
+          "status": "found",
+          "size": 3485
+        },
+        "network_topology.png": {
+          "status": "found",
+          "size": 315283
+        }
+      }
+    },
+    "total_found": 4
+  },
+  "framework": {
+    "files": {
+      "test_network_simulator.py": {
+        "status": "found",
+        "size": 45029
+      },
+      "generate_packet_tracer_files.py": {
+        "status": "found",
+        "size": 15801
+      },
+      "network_analyzer.py": {
+        "status": "found",
+        "size": 28957
+      },
+      "requirements.txt": {
+        "status": "found",
+        "size": 319
+      }
+    },
+    "total_found": 4
+  },
+  "configurations": {
+    "scenarios": {
+      "campus": {
+        "status": "found",
+        "device_count": 4,
+        "devices": [
+          "DORM-DIST-SW1.config",
+          "LIBRARY-DIST-SW1.config",
+          "CAMPUS-CORE-R2.config",
+          "CAMPUS-CORE-R1.config"
+        ]
+      },
+      "enterprise": {
+        "status": "found",
+        "device_count": 7,
+        "devices": [
+          "DIST-R1.config",
+          "DIST-R2.config",
+          "ACCESS-SW1.config",
+          "ACCESS-SW2.config",
+          "FW-1.config",
+          "ACCESS-SW3.config",
+          "CORE-R1.config"
+        ]
+      },
+      "datacenter": {
+        "status": "found",
+        "device_count": 3,
+        "devices": [
+          "DC-CORE-SW1.config",
+          "DC-AGG-SW1.config",
+          "DC-TOR-SW1.config"
+        ]
+      },
+      "simple": {
+        "status": "found",
+        "device_count": 5,
+        "devices": [
+          "switch2.config",
+          "switch_problem.config",
+          "router2.config",
+          "router1.config",
+          "switch1.config"
+        ]
+      }
+    },
+    "total_devices": 19
+  }
+}

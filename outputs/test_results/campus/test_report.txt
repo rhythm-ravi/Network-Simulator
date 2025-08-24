@@ -1,0 +1,39 @@
+NETWORK SIMULATOR COMPREHENSIVE TEST REPORT
+================================================================================
+
+Test Start Time: 2025-08-24T08:02:48.607047
+Test End Time: None
+Output Directory: outputs/test_results/campus
+
+CONFIGURATION PARSING RESULTS
+----------------------------------------
+[OK] Successfully parsed 4 device configurations
+Devices: DORM-DIST-SW1, LIBRARY-DIST-SW1, CAMPUS-CORE-R2, CAMPUS-CORE-R1
+
+TOPOLOGY GENERATION RESULTS
+----------------------------------------
+[OK] Generated topology with 4 nodes and 3 connections
+[OK] Visualization: Generated
+
+ISSUE DETECTION RESULTS
+----------------------------------------
+Found 10 network issues
+Issues by type:
+  - missing_spanning_tree: 2
+  - inconsistent_vlan_names: 1
+  - multiple_gateways: 3
+  - bandwidth_variation: 4
+
+LOAD ANALYSIS RESULTS
+----------------------------------------
+Network Capacity: 12000.0 Mbps
+Utilization: 3800.0 Mbps (31.7%)
+Overloaded Links: 0
+Underutilized Links: 0
+Recommendations: 0
+
+OVERALL SUMMARY
+----------------------------------------
+Overall Test Status: [OK] PASSED
+Tests Passed: 4/4
+Success Rate: 100.0%

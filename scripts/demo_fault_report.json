@@ -1,0 +1,91 @@
+{
+  "timestamp": 1756007992.7135122,
+  "statistics": {
+    "active_faults": 4,
+    "completed_faults": 0,
+    "total_faults": 4,
+    "faults_by_type": {
+      "link_failure": 1,
+      "device_failure": 1,
+      "mtu_mismatch": 1,
+      "packet_loss": 1
+    },
+    "faults_by_severity": {
+      "high": 1,
+      "medium": 2,
+      "low": 1
+    },
+    "cascading_failures_enabled": true,
+    "impact_tracking_enabled": true,
+    "max_concurrent_faults": 10
+  },
+  "active_faults": {
+    "fault_1756007990710_2e4883c1": {
+      "fault_type": "link_failure",
+      "severity": "high",
+      "target": "r1_r2",
+      "status": "active",
+      "description": "Primary link between R1 and R2",
+      "start_time": 1756007991.2109654,
+      "duration": 30.0,
+      "impact": {
+        "affected_devices": [
+          "R2",
+          "R1"
+        ],
+        "affected_links": [
+          "r1_r2"
+        ],
+        "packets_lost": 0
+      }
+    },
+    "fault_1756007990710_3674b1ad": {
+      "fault_type": "device_failure",
+      "severity": "medium",
+      "target": "SW1",
+      "status": "active",
+      "description": "Switch CPU overload",
+      "start_time": 1756007992.7112424,
+      "duration": 20.0,
+      "impact": {
+        "affected_devices": [
+          "SW1"
+        ],
+        "affected_links": [
+          "r2_sw1",
+          "r1_sw1"
+        ],
+        "packets_lost": 0
+      }
+    },
+    "fault_1756007990711_37b0fb83": {
+      "fault_type": "mtu_mismatch",
+      "severity": "low",
+      "target": "R1->R2",
+      "status": "active",
+      "description": "MTU configuration mismatch",
+      "start_time": 1756007991.71146,
+      "duration": null,
+      "impact": {
+        "affected_devices": [],
+        "affected_links": [],
+        "packets_lost": 0
+      }
+    },
+    "fault_1756007990711_89ac5c96": {
+      "fault_type": "packet_loss",
+      "severity": "medium",
+      "target": "r2_sw1",
+      "status": "scheduled",
+      "description": "5% packet loss on R2-SW1 link",
+      "start_time": null,
+      "duration": 15.0,
+      "impact": {
+        "affected_devices": [],
+        "affected_links": [],
+        "packets_lost": 0
+      }
+    }
+  },
+  "fault_history": []
+}

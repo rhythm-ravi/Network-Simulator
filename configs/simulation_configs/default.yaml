@@ -1,0 +1,107 @@
+# Default Network Simulation Configuration
+# This is a basic 3-device network suitable for testing and learning
+
+simulation:
+  duration: 60.0              # Simulation time in seconds
+  real_time_factor: 0.1       # Speed factor (0.1 = 10x faster)
+  inject_faults: true         # Enable fault injection
+  output_dir: "./logs"        # Results output directory
+
+devices:
+  - device:
+      name: "Core-Router"
+      type: "router"
+      model: "Cisco_2900"
+      location: "Network_Core"
+    interfaces:
+      - name: "eth0"
+        ip_address: "10.0.1.1"
+        subnet_mask: "255.255.255.0"
+        status: "up"
+        bandwidth: 1000
+      - name: "eth1"
+        ip_address: "10.0.2.1"
+        subnet_mask: "255.255.255.0"
+        status: "up" 
+        bandwidth: 1000
+        
+  - device:
+      name: "Access-Switch"
+      type: "switch"
+      model: "Cisco_3750"
+      location: "Access_Layer"
+    interfaces:
+      - name: "eth0"
+        ip_address: "10.0.1.10"
+        subnet_mask: "255.255.255.0"
+        status: "up"
+        bandwidth: 100
+      - name: "eth1"
+        ip_address: "10.0.3.1"
+        subnet_mask: "255.255.255.0"
+        status: "up"
+        bandwidth: 100
+
+  - device:
+      name: "Branch-Router"
+      type: "router"
+      model: "Cisco_1900"
+      location: "Branch_Office"
+    interfaces:
+      - name: "eth0"
+        ip_address: "10.0.2.10"
+        subnet_mask: "255.255.255.0"
+        status: "up"
+        bandwidth: 100
+
+links:
+  - id: "core_access"
+    source: "Core-Router"
+    target: "Access-Switch"
+    properties:
+      bandwidth: "1Gbps"
+      latency: "1ms"
+      mtu: 1500
+
+  - id: "core_branch"
+    source: "Core-Router" 
+    target: "Branch-Router"
+    properties:
+      bandwidth: "100Mbps"
+      latency: "5ms"
+      mtu: 1500
+
+# Basic fault scenarios for testing
+fault_scenarios:
+  - name: "Link_Failure_Test"
+    type: "link_failure"
+    target: "core_access"
+    start_time: 30.0
+    duration: 15.0
+    description: "Test core-access link recovery procedures"
+    
+  - name: "MTU_Mismatch_Test"
+    type: "mtu_mismatch"
+    source: "Core-Router"
+    target: "Branch-Router"
+    packet_size: 1600
+    interface_mtu: 1500
+    start_time: 45.0
+    description: "Test MTU discovery and fragmentation"
+
+protocols:
+  routing:
+    - protocol: "OSPF"
+      area: "0.0.0.0"
+      devices: ["Core-Router", "Branch-Router"]
+    - protocol: "STP"
+      devices: ["Access-Switch"]
+
+monitoring:
+  metrics:
+    - "interface_utilization"
+    - "packet_loss"
+    - "latency"
+    - "protocol_convergence"
+  collection_interval: 1.0
+  export_format: "json"

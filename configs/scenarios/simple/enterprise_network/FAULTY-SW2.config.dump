@@ -1,0 +1,48 @@
+
+device:
+  name: FAULTY-SW2
+  type: switch
+  model: cisco-2960
+  location: building-b-floor-1
+
+interfaces:
+  - name: GigabitEthernet0/1
+    type: ethernet
+    ip_address: 10.0.11.2
+    subnet_mask: 255.255.255.0
+    bandwidth: 1000
+    status: up
+    description: "Uplink to DIST-R2"
+    mtu: 1400
+    
+  - name: FastEthernet0/1
+    type: ethernet
+    bandwidth: 100
+    status: up
+    description: "User port VLAN 10"
+    access_vlan: 10
+    
+  - name: FastEthernet0/2
+    type: ethernet
+    bandwidth: 100
+    status: up
+    description: "User port VLAN 20"
+    access_vlan: 20
+
+vlans:
+  - id: 10
+    name: DATA_USERS
+    ip_address: 192.168.10.1
+    subnet_mask: 255.255.255.0
+  - id: 20
+    name: PHONE
+    ip_address: 192.168.20.1
+    subnet_mask: 255.255.255.0
+  - id: 40
+    name: GUEST
+    ip_address: 192.168.40.1
+    subnet_mask: 255.255.255.0
+
+spanning_tree:
+  mode: pvst
+  priority: 4096

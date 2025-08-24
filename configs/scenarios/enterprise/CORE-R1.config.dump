@@ -1,0 +1,52 @@
+device:
+  name: CORE-R1
+  type: router
+  model: cisco-4331
+  location: datacenter-core
+
+interfaces:
+  - name: GigabitEthernet0/0/0
+    type: ethernet
+    ip_address: 192.168.100.1
+    subnet_mask: 255.255.255.252
+    bandwidth: 1000
+    status: up
+    description: "Link to Firewall"
+    mtu: 1500
+    
+  - name: GigabitEthernet0/0/1
+    type: ethernet
+    ip_address: 10.1.1.1
+    subnet_mask: 255.255.255.252
+    bandwidth: 1000
+    status: up
+    description: "Link to DIST-R1"
+    mtu: 1500
+    
+  - name: GigabitEthernet0/0/2
+    type: ethernet
+    ip_address: 10.1.2.1
+    subnet_mask: 255.255.255.252
+    bandwidth: 1000
+    status: up
+    description: "Link to DIST-R2"
+    mtu: 1500
+
+routing:
+  protocols:
+    - type: ospf
+      process_id: 1
+      router_id: 1.1.1.1
+      networks:
+        - network: 10.1.0.0
+          wildcard: 0.0.255.255
+          area: 0
+        - network: 192.168.100.0
+          wildcard: 0.0.0.3
+          area: 0
+
+static_routes:
+  - destination: 0.0.0.0
+    mask: 0.0.0.0
+    gateway: 192.168.100.2
+    administrative_distance: 1

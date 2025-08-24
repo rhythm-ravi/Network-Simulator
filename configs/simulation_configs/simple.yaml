@@ -1,0 +1,55 @@
+# Simple Test Network Configuration
+# Minimal 2-device setup for quick testing and validation
+
+simulation:
+  duration: 30.0              # Short simulation time
+  real_time_factor: 0.05      # Fast execution
+  inject_faults: false        # No faults for basic testing
+  output_dir: "./logs"        # Results output directory
+
+devices:
+  - device:
+      name: "Router-A"
+      type: "router"
+      model: "Generic_Router"
+      location: "Site_A"
+    interfaces:
+      - name: "eth0"
+        ip_address: "192.168.1.1"
+        subnet_mask: "255.255.255.0"
+        status: "up"
+        bandwidth: 100
+        
+  - device:
+      name: "Router-B"
+      type: "router" 
+      model: "Generic_Router"
+      location: "Site_B"
+    interfaces:
+      - name: "eth0"
+        ip_address: "192.168.1.2"
+        subnet_mask: "255.255.255.0"
+        status: "up"
+        bandwidth: 100
+
+links:
+  - id: "wan_link"
+    source: "Router-A"
+    target: "Router-B"
+    properties:
+      bandwidth: "100Mbps"
+      latency: "10ms"
+      mtu: 1500
+
+protocols:
+  routing:
+    - protocol: "STATIC"
+      devices: ["Router-A", "Router-B"]
+
+monitoring:
+  metrics:
+    - "interface_utilization"
+    - "packet_loss"
+    - "latency"
+  collection_interval: 2.0
+  export_format: "json"

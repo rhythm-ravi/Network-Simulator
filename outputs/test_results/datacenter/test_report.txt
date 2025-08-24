@@ -1,0 +1,39 @@
+NETWORK SIMULATOR COMPREHENSIVE TEST REPORT
+================================================================================
+
+Test Start Time: 2025-08-24T08:02:57.514133
+Test End Time: None
+Output Directory: outputs/test_results/datacenter
+
+CONFIGURATION PARSING RESULTS
+----------------------------------------
+[OK] Successfully parsed 3 device configurations
+Devices: DC-CORE-SW1, DC-AGG-SW1, DC-TOR-SW1
+
+TOPOLOGY GENERATION RESULTS
+----------------------------------------
+[OK] Generated topology with 3 nodes and 2 connections
+[OK] Visualization: Generated
+
+ISSUE DETECTION RESULTS
+----------------------------------------
+Found 9 network issues
+Issues by type:
+  - missing_spanning_tree: 3
+  - mtu_inconsistency: 1
+  - multiple_gateways: 2
+  - bandwidth_variation: 3
+
+LOAD ANALYSIS RESULTS
+----------------------------------------
+Network Capacity: 20000.0 Mbps
+Utilization: 4000.0 Mbps (20.0%)
+Overloaded Links: 0
+Underutilized Links: 0
+Recommendations: 0
+
+OVERALL SUMMARY
+----------------------------------------
+Overall Test Status: [OK] PASSED
+Tests Passed: 4/4
+Success Rate: 100.0%

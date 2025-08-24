@@ -1,0 +1,66 @@
+device:
+  name: ACCESS-SW2
+  type: switch
+  model: cisco-3650
+  location: building-a-floor-2
+
+interfaces:
+  - name: GigabitEthernet1/0/1
+    type: ethernet
+    ip_address: 10.1.4.2
+    subnet_mask: 255.255.255.252
+    bandwidth: 1000
+    status: up
+    description: "Uplink to DIST-R1"
+    mtu: 1500
+    
+  - name: GigabitEthernet1/0/2
+    type: ethernet
+    bandwidth: 1000
+    status: up
+    description: "Access port VLAN 10"
+    mtu: 1500
+    switchport_mode: access
+    access_vlan: 10
+    
+  - name: GigabitEthernet1/0/3
+    type: ethernet
+    bandwidth: 1000
+    status: up
+    description: "Access port VLAN 20"
+    mtu: 1500
+    switchport_mode: access
+    access_vlan: 20
+    
+  - name: GigabitEthernet1/0/4
+    type: ethernet
+    bandwidth: 1000
+    status: up
+    description: "Access port VLAN 20"
+    mtu: 1500
+    switchport_mode: access
+    access_vlan: 20
+
+vlans:
+  - id: 10
+    name: USERS
+    ip_address: 10.10.1.101
+    subnet_mask: 255.255.255.0
+  - id: 20
+    name: SERVERS
+    ip_address: 10.20.1.101
+    subnet_mask: 255.255.255.0
+  - id: 99
+    name: MANAGEMENT
+    ip_address: 10.99.1.11
+    subnet_mask: 255.255.255.0
+
+spanning_tree:
+  mode: pvst
+  vlans:
+    - vlan_id: 10
+      priority: 32768
+    - vlan_id: 20
+      priority: 32768
+    - vlan_id: 99
+      priority: 32768

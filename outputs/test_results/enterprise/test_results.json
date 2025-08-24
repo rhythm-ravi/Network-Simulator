@@ -1,0 +1,375 @@
+{
+  "start_time": "2025-08-24T08:02:39.436098",
+  "config_parsing": {
+    "total_configs": 7,
+    "parsed_devices": [
+      "DIST-R1",
+      "DIST-R2",
+      "ACCESS-SW1",
+      "ACCESS-SW2",
+      "FW-1",
+      "ACCESS-SW3",
+      "CORE-R1"
+    ],
+    "success": true,
+    "details": {
+      "DIST-R1": {
+        "device_type": "router",
+        "interface_count": 5,
+        "vlan_count": 0,
+        "routing_protocols": [
+          "ospf"
+        ],
+        "validation_status": "passed"
+      },
+      "DIST-R2": {
+        "device_type": "router",
+        "interface_count": 4,
+        "vlan_count": 0,
+        "routing_protocols": [
+          "ospf"
+        ],
+        "validation_status": "passed"
+      },
+      "ACCESS-SW1": {
+        "device_type": "switch",
+        "interface_count": 4,
+        "vlan_count": 3,
+        "routing_protocols": [],
+        "validation_status": "passed"
+      },
+      "ACCESS-SW2": {
+        "device_type": "switch",
+        "interface_count": 4,
+        "vlan_count": 3,
+        "routing_protocols": [],
+        "validation_status": "passed"
+      },
+      "FW-1": {
+        "device_type": "firewall",
+        "interface_count": 2,
+        "vlan_count": 0,
+        "routing_protocols": [],
+        "validation_status": "passed"
+      },
+      "ACCESS-SW3": {
+        "device_type": "switch",
+        "interface_count": 4,
+        "vlan_count": 2,
+        "routing_protocols": [],
+        "validation_status": "passed"
+      },
+      "CORE-R1": {
+        "device_type": "router",
+        "interface_count": 3,
+        "vlan_count": 0,
+        "routing_protocols": [
+          "ospf"
+        ],
+        "validation_status": "passed"
+      }
+    }
+  },
+  "topology_generation": {
+    "nodes_count": 7,
+    "edges_count": 8,
+    "devices": [
+      "DIST-R1",
+      "DIST-R2",
+      "ACCESS-SW1",
+      "ACCESS-SW2",
+      "FW-1",
+      "ACCESS-SW3",
+      "CORE-R1"
+    ],
+    "connections": [
+      [
+        "DIST-R1",
+        "CORE-R1"
+      ],
+      [
+        "DIST-R1",
+        "ACCESS-SW1"
+      ],
+      [
+        "DIST-R1",
+        "ACCESS-SW2"
+      ],
+      [
+        "DIST-R2",
+        "CORE-R1"
+      ],
+      [
+        "DIST-R2",
+        "ACCESS-SW3"
+      ],
+      [
+        "ACCESS-SW1",
+        "ACCESS-SW2"
+      ],
+      [
+        "ACCESS-SW1",
+        "ACCESS-SW3"
+      ],
+      [
+        "FW-1",
+        "CORE-R1"
+      ]
+    ],
+    "visualization_generated": true,
+    "success": true,
+    "missing_devices": [
+      {
+        "type": "potential_switch",
+        "network": "10.10.1.0/24",
+        "connected_devices": [
+          "DIST-R1"
+        ],
+        "reason": "Large network (256 addresses) with only 1 devices"
+      },
+      {
+        "type": "potential_switch",
+        "network": "10.20.1.0/24",
+        "connected_devices": [
+          "DIST-R1"
+        ],
+        "reason": "Large network (256 addresses) with only 1 devices"
+      },
+      {
+        "type": "potential_switch",
+        "network": "10.30.1.0/24",
+        "connected_devices": [
+          "DIST-R2"
+        ],
+        "reason": "Large network (256 addresses) with only 1 devices"
+      },
+      {
+        "type": "potential_switch",
+        "network": "10.99.1.0/24",
+        "connected_devices": [
+          "DIST-R2"
+        ],
+        "reason": "Large network (256 addresses) with only 1 devices"
+      },
+      {
+        "type": "potential_switch",
+        "network": "203.0.113.8/29",
+        "connected_devices": [
+          "FW-1"
+        ],
+        "reason": "Large network (8 addresses) with only 1 devices"
+      }
+    ]
+  },
+  "issue_detection": {
+    "total_issues": 16,
+    "by_type": {
+      "missing_spanning_tree": 3,
+      "multiple_gateways": 6,
+      "bandwidth_variation": 7
+    },
+    "by_severity": {
+      "warning": 9,
+      "info": 7
+    },
+    "by_device": {
+      "ACCESS-SW1": 2,
+      "ACCESS-SW2": 2,
+      "ACCESS-SW3": 2,
+      "global": 6,
+      "DIST-R1": 1,
+      "DIST-R2": 1,
+      "FW-1": 1,
+      "CORE-R1": 1
+    },
+    "success": true,
+    "details": [
+      {
+        "type": "missing_spanning_tree",
+        "device": "ACCESS-SW1",
+        "severity": "warning",
+        "description": "Device ACCESS-SW1 is missing spanning tree configuration for VLANs: {10, 99, 20}"
+      },
+      {
+        "type": "missing_spanning_tree",
+        "device": "ACCESS-SW2",
+        "severity": "warning",
+        "description": "Device ACCESS-SW2 is missing spanning tree configuration for VLANs: {10, 99, 20}"
+      },
+      {
+        "type": "missing_spanning_tree",
+        "device": "ACCESS-SW3",
+        "severity": "warning",
+        "description": "Device ACCESS-SW3 is missing spanning tree configuration for VLANs: {99, 30}"
+      },
+      {
+        "type": "multiple_gateways",
+        "severity": "warning",
+        "description": "Multiple potential gateways detected in network 10.1.1.0/30",
+        "network": "10.1.1.0/30",
+        "gateways": [
+          "DIST-R1 (10.1.1.2)",
+          "CORE-R1 (10.1.1.1)"
+        ]
+      },
+      {
+        "type": "multiple_gateways",
+        "severity": "warning",
+        "description": "Multiple potential gateways detected in network 10.1.3.0/30",
+        "network": "10.1.3.0/30",
+        "gateways": [
+          "DIST-R1 (10.1.3.1)",
+          "ACCESS-SW1 (10.1.3.2)"
+        ]
+      },
+      {
+        "type": "multiple_gateways",
+        "severity": "warning",
+        "description": "Multiple potential gateways detected in network 10.1.4.0/30",
+        "network": "10.1.4.0/30",
+        "gateways": [
+          "DIST-R1 (10.1.4.1)",
+          "ACCESS-SW2 (10.1.4.2)"
+        ]
+      },
+      {
+        "type": "multiple_gateways",
+        "severity": "warning",
+        "description": "Multiple potential gateways detected in network 10.1.2.0/30",
+        "network": "10.1.2.0/30",
+        "gateways": [
+          "DIST-R2 (10.1.2.2)",
+          "CORE-R1 (10.1.2.1)"
+        ]
+      },
+      {
+        "type": "multiple_gateways",
+        "severity": "warning",
+        "description": "Multiple potential gateways detected in network 10.1.5.0/30",
+        "network": "10.1.5.0/30",
+        "gateways": [
+          "DIST-R2 (10.1.5.1)",
+          "ACCESS-SW3 (10.1.5.2)"
+        ]
+      },
+      {
+        "type": "multiple_gateways",
+        "severity": "warning",
+        "description": "Multiple potential gateways detected in network 192.168.100.0/30",
+        "network": "192.168.100.0/30",
+        "gateways": [
+          "FW-1 (192.168.100.2)",
+          "CORE-R1 (192.168.100.1)"
+        ]
+      },
+      {
+        "type": "bandwidth_variation",
+        "device": "DIST-R1",
+        "severity": "info",
+        "description": "Device DIST-R1 has varying bandwidth across interfaces",
+        "details": {
+          "GigabitEthernet0/0/0": "1000Mbps",
+          "GigabitEthernet0/1/0": "1000Mbps",
+          "GigabitEthernet0/1/1": "1000Mbps",
+          "GigabitEthernet0/2/0": "1000Mbps",
+          "GigabitEthernet0/2/1": "1000Mbps"
+        }
+      },
+      {
+        "type": "bandwidth_variation",
+        "device": "DIST-R2",
+        "severity": "info",
+        "description": "Device DIST-R2 has varying bandwidth across interfaces",
+        "details": {
+          "GigabitEthernet0/0/0": "1000Mbps",
+          "GigabitEthernet0/1/0": "1000Mbps",
+          "GigabitEthernet0/1/1": "1000Mbps",
+          "GigabitEthernet0/2/0": "1000Mbps"
+        }
+      },
+      {
+        "type": "bandwidth_variation",
+        "device": "ACCESS-SW1",
+        "severity": "info",
+        "description": "Device ACCESS-SW1 has varying bandwidth across interfaces",
+        "details": {
+          "GigabitEthernet1/0/1": "1000Mbps",
+          "GigabitEthernet1/0/2": "1000Mbps",
+          "GigabitEthernet1/0/3": "1000Mbps",
+          "GigabitEthernet1/0/4": "1000Mbps"
+        }
+      },
+      {
+        "type": "bandwidth_variation",
+        "device": "ACCESS-SW2",
+        "severity": "info",
+        "description": "Device ACCESS-SW2 has varying bandwidth across interfaces",
+        "details": {
+          "GigabitEthernet1/0/1": "1000Mbps",
+          "GigabitEthernet1/0/2": "1000Mbps",
+          "GigabitEthernet1/0/3": "1000Mbps",
+          "GigabitEthernet1/0/4": "1000Mbps"
+        }
+      },
+      {
+        "type": "bandwidth_variation",
+        "device": "FW-1",
+        "severity": "info",
+        "description": "Device FW-1 has varying bandwidth across interfaces",
+        "details": {
+          "GigabitEthernet0/0": "1000Mbps",
+          "GigabitEthernet0/1": "1000Mbps"
+        }
+      },
+      {
+        "type": "bandwidth_variation",
+        "device": "ACCESS-SW3",
+        "severity": "info",
+        "description": "Device ACCESS-SW3 has varying bandwidth across interfaces",
+        "details": {
+          "GigabitEthernet1/0/1": "1000Mbps",
+          "GigabitEthernet1/0/2": "1000Mbps",
+          "GigabitEthernet1/0/3": "1000Mbps",
+          "GigabitEthernet1/0/4": "1000Mbps"
+        }
+      },
+      {
+        "type": "bandwidth_variation",
+        "device": "CORE-R1",
+        "severity": "info",
+        "description": "Device CORE-R1 has varying bandwidth across interfaces",
+        "details": {
+          "GigabitEthernet0/0/0": "1000Mbps",
+          "GigabitEthernet0/0/1": "1000Mbps",
+          "GigabitEthernet0/0/2": "1000Mbps"
+        }
+      }
+    ]
+  },
+  "load_analysis": {
+    "total_network_capacity": 6000.0,
+    "total_network_utilization": 1800.0,
+    "utilization_percentage": 30.0,
+    "overloaded_links": 0,
+    "underutilized_links": 0,
+    "capacity_issues": 0,
+    "recommendations_count": 0,
+    "success": true,
+    "recommendations": []
+  },
+  "fault_injection": {},
+  "simulation": {},
+  "overall_summary": {
+    "success": true,
+    "tests_passed": 4,
+    "total_tests": 4,
+    "success_rate": 100.0,
+    "test_categories": [
+      "config_parsing",
+      "topology_generation",
+      "issue_detection",
+      "load_analysis"
+    ]
+  },
+  "end_time": null
+}

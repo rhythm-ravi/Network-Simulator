@@ -1,0 +1,206 @@
+{
+  "timestamp": 1756007992.7127657,
+  "simulation_summary": {
+    "simulation_duration": 3.0031251907348633,
+    "collection_interval": 0.5,
+    "totals": {
+      "packets": 882,
+      "bytes": 1323000,
+      "errors": 2,
+      "dropped_packets": 2
+    },
+    "averages": {
+      "packets_per_second": 293.69405002532545,
+      "bytes_per_second": 440541.0750379882
+    },
+    "counts": {
+      "interfaces": 4,
+      "protocols": 2,
+      "total_flows": 3,
+      "active_flows": 3,
+      "congestion_events": 2
+    },
+    "data_points": {
+      "metrics": 21,
+      "rates": 12
+    }
+  },
+  "interface_statistics": {
+    "R1:eth0": {
+      "device_name": "R1",
+      "interface_name": "eth0",
+      "packets_in": 150,
+      "packets_out": 140,
+      "bytes_in": 225000,
+      "bytes_out": 210000,
+      "packets_dropped_in": 0,
+      "packets_dropped_out": 2,
+      "errors_in": 1,
+      "errors_out": 0,
+      "utilization_in": 0.0,
+      "utilization_out": 0.0,
+      "last_updated": 1756007992.7110257
+    },
+    "R1:eth1": {
+      "device_name": "R1",
+      "interface_name": "eth1",
+      "packets_in": 75,
+      "packets_out": 80,
+      "bytes_in": 112500,
+      "bytes_out": 120000,
+      "packets_dropped_in": 0,
+      "packets_dropped_out": 0,
+      "errors_in": 0,
+      "errors_out": 0,
+      "utilization_in": 0.0,
+      "utilization_out": 0.0,
+      "last_updated": 1756007992.7110257
+    },
+    "R2:eth0": {
+      "device_name": "R2",
+      "interface_name": "eth0",
+      "packets_in": 140,
+      "packets_out": 135,
+      "bytes_in": 210000,
+      "bytes_out": 202500,
+      "packets_dropped_in": 0,
+      "packets_dropped_out": 0,
+      "errors_in": 0,
+      "errors_out": 1,
+      "utilization_in": 0.0,
+      "utilization_out": 0.0,
+      "last_updated": 1756007992.7110257
+    },
+    "SW1:eth0": {
+      "device_name": "SW1",
+      "interface_name": "eth0",
+      "packets_in": 80,
+      "packets_out": 82,
+      "bytes_in": 120000,
+      "bytes_out": 123000,
+      "packets_dropped_in": 0,
+      "packets_dropped_out": 0,
+      "errors_in": 0,
+      "errors_out": 0,
+      "utilization_in": 0.0,
+      "utilization_out": 0.0,
+      "last_updated": 1756007992.7110257
+    }
+  },
+  "protocol_statistics": {
+    "OSPF": {
+      "messages_sent": 25,
+      "messages_received": 23,
+      "messages_dropped": 0,
+      "neighbors_discovered": 2,
+      "neighbors_lost": 0,
+      "convergence_events": 1,
+      "avg_convergence_time": 3.2,
+      "last_convergence_time": 3.2,
+      "protocol_errors": 0
+    },
+    "ARP": {
+      "messages_sent": 15,
+      "messages_received": 14,
+      "messages_dropped": 0,
+      "neighbors_discovered": 3,
+      "neighbors_lost": 0,
+      "convergence_events": 0,
+      "avg_convergence_time": 0.0,
+      "last_convergence_time": null,
+      "protocol_errors": 0
+    }
+  },
+  "traffic_flows": {
+    "flow_r1_r2": {
+      "source_device": "R1",
+      "destination_device": "R2",
+      "protocol": "TCP",
+      "packets": 1,
+      "bytes": 1500,
+      "duration": 3.0994415283203125e-06,
+      "start_time": 1756007989.7102914,
+      "last_seen": 1756007989.7102945,
+      "min_latency": 2.5,
+      "max_latency": 2.5,
+      "avg_latency": 2.5,
+      "path_hops": [
+        "R1",
+        "R2"
+      ],
+      "path_changes": 1
+    },
+    "flow_r1_sw1": {
+      "source_device": "R1",
+      "destination_device": "SW1",
+      "protocol": "UDP",
+      "packets": 1,
+      "bytes": 1200,
+      "duration": 1.9073486328125e-06,
+      "start_time": 1756007989.7103002,
+      "last_seen": 1756007989.710302,
+      "min_latency": 1.8,
+      "max_latency": 1.8,
+      "avg_latency": 1.8,
+      "path_hops": [
+        "R1",
+        "SW1"
+      ],
+      "path_changes": 1
+    },
+    "flow_r2_sw1": {
+      "source_device": "R2",
+      "destination_device": "SW1",
+      "protocol": "ICMP",
+      "packets": 1,
+      "bytes": 64,
+      "duration": 9.5367431640625e-07,
+      "start_time": 1756007989.7103064,
+      "last_seen": 1756007989.7103074,
+      "min_latency": 1.2,
+      "max_latency": 1.2,
+      "avg_latency": 1.2,
+      "path_hops": [
+        "R2",
+        "SW1"
+      ],
+      "path_changes": 1
+    }
+  },
+  "congestion_analysis": {
+    "total_events": 2,
+    "avg_severity": 0.8,
+    "max_severity": 0.9,
+    "hotspots": {
+      "r1_r2": {
+        "event_count": 1,
+        "avg_severity": 0.9,
+        "max_severity": 0.9
+      },
+      "SW1": {
+        "event_count": 1,
+        "avg_severity": 0.7,
+        "max_severity": 0.7
+      }
+    },
+    "causes": {
+      "link_failure": 1,
+      "cpu_overload": 1
+    }
+  },
+  "throughput_analysis": {
+    "time_window": 60.0,
+    "packets_per_second": {
+      "current": 0.0,
+      "avg": 0.0,
+      "max": 0.0,
+      "min": 0.0
+    },
+    "bytes_per_second": {
+      "current": 0.0,
+      "avg": 220588.93787874744,
+      "max": 2645303.718732481,
+      "min": 0.0
+    }
+  }
+}

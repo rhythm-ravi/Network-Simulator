@@ -1,0 +1,450 @@
+{
+  "start_time": "2025-08-24T08:07:49.082095",
+  "config_parsing": {
+    "total_configs": 5,
+    "parsed_devices": [
+      "switch2",
+      "switch_problem",
+      "router2",
+      "router1",
+      "switch1"
+    ],
+    "success": true,
+    "details": {
+      "switch2": {
+        "device_type": "switch",
+        "interface_count": 10,
+        "vlan_count": 4,
+        "routing_protocols": [],
+        "validation_status": "passed"
+      },
+      "switch_problem": {
+        "device_type": "switch",
+        "interface_count": 5,
+        "vlan_count": 2,
+        "routing_protocols": [],
+        "validation_status": "passed"
+      },
+      "router2": {
+        "device_type": "router",
+        "interface_count": 5,
+        "vlan_count": 0,
+        "routing_protocols": [
+          "ospf",
+          "bgp"
+        ],
+        "validation_status": "passed"
+      },
+      "router1": {
+        "device_type": "router",
+        "interface_count": 4,
+        "vlan_count": 0,
+        "routing_protocols": [
+          "ospf"
+        ],
+        "validation_status": "passed"
+      },
+      "switch1": {
+        "device_type": "switch",
+        "interface_count": 10,
+        "vlan_count": 4,
+        "routing_protocols": [],
+        "validation_status": "passed"
+      }
+    }
+  },
+  "topology_generation": {
+    "nodes_count": 5,
+    "edges_count": 10,
+    "devices": [
+      "switch2",
+      "switch_problem",
+      "router2",
+      "router1",
+      "switch1"
+    ],
+    "connections": [
+      [
+        "switch2",
+        "switch_problem"
+      ],
+      [
+        "switch2",
+        "router1"
+      ],
+      [
+        "switch2",
+        "switch1"
+      ],
+      [
+        "switch2",
+        "router2"
+      ],
+      [
+        "switch_problem",
+        "router1"
+      ],
+      [
+        "switch_problem",
+        "switch1"
+      ],
+      [
+        "switch_problem",
+        "router2"
+      ],
+      [
+        "router2",
+        "switch1"
+      ],
+      [
+        "router2",
+        "router1"
+      ],
+      [
+        "router1",
+        "switch1"
+      ]
+    ],
+    "visualization_generated": true,
+    "success": true,
+    "missing_devices": [
+      {
+        "type": "potential_switch",
+        "network": "192.168.30.0/24",
+        "connected_devices": [
+          "switch2",
+          "switch1"
+        ],
+        "reason": "Large network (256 addresses) with only 2 devices"
+      },
+      {
+        "type": "potential_switch",
+        "network": "192.168.100.0/24",
+        "connected_devices": [
+          "switch2",
+          "switch1"
+        ],
+        "reason": "Large network (256 addresses) with only 2 devices"
+      }
+    ]
+  },
+  "issue_detection": {
+    "total_issues": 27,
+    "by_type": {
+      "duplicate_ip": 3,
+      "inconsistent_subnet_masks": 1,
+      "missing_spanning_tree": 3,
+      "duplicate_ip_in_vlan": 2,
+      "mtu_inconsistency": 1,
+      "bgp_neighbor_mismatch": 1,
+      "inconsistent_vlan_names": 4,
+      "multiple_gateways": 5,
+      "unused_acl": 4,
+      "bandwidth_variation": 2,
+      "mixed_routing_protocols": 1
+    },
+    "by_severity": {
+      "critical": 7,
+      "warning": 13,
+      "info": 7
+    },
+    "by_device": {
+      "global": 17,
+      "switch_problem": 2,
+      "router2": 3,
+      "switch1": 2,
+      "switch2": 1,
+      "router1": 2
+    },
+    "success": true,
+    "details": [
+      {
+        "type": "duplicate_ip",
+        "severity": "critical",
+        "description": "IP address 192.168.100.10 is configured on multiple interfaces",
+        "affected": [
+          "switch_problem.GigabitEthernet0/1",
+          "switch1.Vlan100"
+        ]
+      },
+      {
+        "type": "duplicate_ip",
+        "severity": "critical",
+        "description": "IP address 192.168.10.254 is configured on multiple interfaces",
+        "affected": [
+          "switch_problem.Vlan10",
+          "switch1.Vlan10"
+        ]
+      },
+      {
+        "type": "duplicate_ip",
+        "severity": "critical",
+        "description": "IP address 192.168.20.254 is configured on multiple interfaces",
+        "affected": [
+          "switch_problem.Vlan20",
+          "switch1.Vlan20"
+        ]
+      },
+      {
+        "type": "inconsistent_subnet_masks",
+        "severity": "critical",
+        "description": "Inconsistent subnet masks used on network 192.168.100.0",
+        "masks": [
+          "255.255.255.252",
+          "255.255.255.0"
+        ],
+        "affected": [
+          "switch2.Vlan100",
+          "router2.GigabitEthernet0/2",
+          "switch1.GigabitEthernet0/1",
+          "switch1.Vlan100"
+        ]
+      },
+      {
+        "type": "missing_spanning_tree",
+        "severity": "critical",
+        "description": "1 switches do not have spanning-tree configured, which may lead to network loops",
+        "devices": [
+          "switch2"
+        ]
+      },
+      {
+        "type": "duplicate_ip_in_vlan",
+        "severity": "critical",
+        "description": "Duplicate IP address 192.168.10.254 found in VLAN 10",
+        "ip_address": "192.168.10.254",
+        "vlan_id": 10,
+        "locations": [
+          "switch_problem:Vlan10",
+          "switch1:Vlan10"
+        ]
+      },
+      {
+        "type": "duplicate_ip_in_vlan",
+        "severity": "critical",
+        "description": "Duplicate IP address 192.168.20.254 found in VLAN 20",
+        "ip_address": "192.168.20.254",
+        "vlan_id": 20,
+        "locations": [
+          "switch_problem:Vlan20",
+          "switch1:Vlan20"
+        ]
+      },
+      {
+        "type": "mtu_inconsistency",
+        "device": "switch_problem",
+        "severity": "warning",
+        "description": "Device switch_problem has inconsistent MTU values across interfaces: {1400, 1500}"
+      },
+      {
+        "type": "missing_spanning_tree",
+        "device": "switch_problem",
+        "severity": "warning",
+        "description": "Device switch_problem is missing spanning tree configuration for VLANs: {10, 20}"
+      },
+      {
+        "type": "bgp_neighbor_mismatch",
+        "device": "router2",
+        "severity": "warning",
+        "description": "BGP neighbor 10.255.255.1 (AS 65001) on router2 does not have a reciprocal configuration on router1"
+      },
+      {
+        "type": "missing_spanning_tree",
+        "device": "switch1",
+        "severity": "warning",
+        "description": "Device switch1 is missing spanning tree configuration for VLANs: {100, 10, 20, 30}"
+      },
+      {
+        "type": "inconsistent_vlan_names",
+        "severity": "warning",
+        "description": "VLAN 10 has inconsistent names across devices",
+        "names": [
+          "SALES-DEPT",
+          "SALES"
+        ],
+        "devices": [
+          "switch2",
+          "switch_problem",
+          "switch1"
+        ]
+      },
+      {
+        "type": "inconsistent_vlan_names",
+        "severity": "warning",
+        "description": "VLAN 20 has inconsistent names across devices",
+        "names": [
+          "MARKETING-TEAM",
+          "MARKETING"
+        ],
+        "devices": [
+          "switch2",
+          "switch_problem",
+          "switch1"
+        ]
+      },
+      {
+        "type": "inconsistent_vlan_names",
+        "severity": "warning",
+        "description": "VLAN 30 has inconsistent names across devices",
+        "names": [
+          "ENGINEERING-GROUP",
+          "ENGINEERING"
+        ],
+        "devices": [
+          "switch2",
+          "switch1"
+        ]
+      },
+      {
+        "type": "inconsistent_vlan_names",
+        "severity": "warning",
+        "description": "VLAN 100 has inconsistent names across devices",
+        "names": [
+          "MANAGEMENT",
+          "MGMT"
+        ],
+        "devices": [
+          "switch2",
+          "switch1"
+        ]
+      },
+      {
+        "type": "multiple_gateways",
+        "severity": "warning",
+        "description": "Multiple potential gateways detected in network 192.168.10.0/24",
+        "network": "192.168.10.0/24",
+        "gateways": [
+          "switch_problem (192.168.10.254)",
+          "router1 (192.168.10.1)",
+          "switch1 (192.168.10.254)"
+        ]
+      },
+      {
+        "type": "multiple_gateways",
+        "severity": "warning",
+        "description": "Multiple potential gateways detected in network 192.168.20.0/24",
+        "network": "192.168.20.0/24",
+        "gateways": [
+          "switch_problem (192.168.20.254)",
+          "router2 (192.168.20.1)",
+          "switch1 (192.168.20.254)"
+        ]
+      },
+      {
+        "type": "multiple_gateways",
+        "severity": "warning",
+        "description": "Multiple potential gateways detected in network 203.0.113.0/30",
+        "network": "203.0.113.0/30",
+        "gateways": [
+          "router2 (203.0.113.2)",
+          "router1 (203.0.113.1)"
+        ]
+      },
+      {
+        "type": "multiple_gateways",
+        "severity": "warning",
+        "description": "Multiple potential gateways detected in network 172.16.1.0/30",
+        "network": "172.16.1.0/30",
+        "gateways": [
+          "router2 (172.16.1.2)",
+          "router1 (172.16.1.1)"
+        ]
+      },
+      {
+        "type": "multiple_gateways",
+        "severity": "warning",
+        "description": "Multiple potential gateways detected in network 192.168.100.0/30",
+        "network": "192.168.100.0/30",
+        "gateways": [
+          "router2 (192.168.100.1)",
+          "switch1 (192.168.100.2)"
+        ]
+      },
+      {
+        "type": "unused_acl",
+        "device": "switch2",
+        "severity": "info",
+        "description": "Device switch2 has unused ACLs: {'10'}"
+      },
+      {
+        "type": "bandwidth_variation",
+        "device": "router2",
+        "severity": "info",
+        "description": "Device router2 has varying bandwidth across interfaces",
+        "details": {
+          "GigabitEthernet0/0": "1Mbps",
+          "GigabitEthernet0/1": "100Kbps",
+          "Serial0/0/0": "1Kbps",
+          "GigabitEthernet0/2": "1Mbps"
+        }
+      },
+      {
+        "type": "unused_acl",
+        "device": "router2",
+        "severity": "info",
+        "description": "Device router2 has unused ACLs: {'10'}"
+      },
+      {
+        "type": "bandwidth_variation",
+        "device": "router1",
+        "severity": "info",
+        "description": "Device router1 has varying bandwidth across interfaces",
+        "details": {
+          "GigabitEthernet0/0": "1Mbps",
+          "GigabitEthernet0/1": "100Kbps",
+          "Serial0/0/0": "1Kbps"
+        }
+      },
+      {
+        "type": "unused_acl",
+        "device": "router1",
+        "severity": "info",
+        "description": "Device router1 has unused ACLs: {'10'}"
+      },
+      {
+        "type": "unused_acl",
+        "device": "switch1",
+        "severity": "info",
+        "description": "Device switch1 has unused ACLs: {'10'}"
+      },
+      {
+        "type": "mixed_routing_protocols",
+        "severity": "info",
+        "description": "Mixed routing protocols detected: 2 OSPF and 1 BGP routers",
+        "ospf_routers": [
+          "router2",
+          "router1"
+        ],
+        "bgp_routers": [
+          "router2"
+        ]
+      }
+    ]
+  },
+  "load_analysis": {
+    "total_network_capacity": 807.101,
+    "total_network_utilization": 162.8303,
+    "utilization_percentage": 20.174711715138503,
+    "overloaded_links": 0,
+    "underutilized_links": 0,
+    "capacity_issues": 0,
+    "recommendations_count": 0,
+    "success": true,
+    "recommendations": []
+  },
+  "fault_injection": {},
+  "simulation": {},
+  "overall_summary": {
+    "success": true,
+    "tests_passed": 4,
+    "total_tests": 4,
+    "success_rate": 100.0,
+    "test_categories": [
+      "config_parsing",
+      "topology_generation",
+      "issue_detection",
+      "load_analysis"
+    ]
+  },
+  "end_time": null
+}

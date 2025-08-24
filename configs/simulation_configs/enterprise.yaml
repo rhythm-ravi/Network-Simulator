@@ -1,0 +1,210 @@
+# Enterprise Network Configuration
+# Complex multi-layer network with redundancy and fault scenarios
+
+simulation:
+  duration: 120.0             # Longer simulation for complex network
+  real_time_factor: 0.2       # Moderate speed for detailed analysis
+  inject_faults: true         # Enable comprehensive fault testing
+  output_dir: "./logs"        # Results output directory
+
+devices:
+  - device:
+      name: "Core-SW-1"
+      type: "switch"
+      model: "Cisco_6500"
+      location: "Data_Center_Core"
+    interfaces:
+      - name: "eth0"
+        ip_address: "10.1.0.1"
+        subnet_mask: "255.255.255.0"
+        status: "up"
+        bandwidth: 10000
+      - name: "eth1" 
+        ip_address: "10.2.0.1"
+        subnet_mask: "255.255.255.0"
+        status: "up"
+        bandwidth: 10000
+      - name: "eth2"
+        ip_address: "10.3.0.1"
+        subnet_mask: "255.255.255.0"
+        status: "up"
+        bandwidth: 10000
+
+  - device:
+      name: "Core-SW-2"
+      type: "switch"
+      model: "Cisco_6500"
+      location: "Data_Center_Core"
+    interfaces:
+      - name: "eth0"
+        ip_address: "10.1.0.2"
+        subnet_mask: "255.255.255.0"
+        status: "up"
+        bandwidth: 10000
+      - name: "eth1"
+        ip_address: "10.2.0.2"
+        subnet_mask: "255.255.255.0"
+        status: "up"
+        bandwidth: 10000
+
+  - device:
+      name: "Dist-SW-1"
+      type: "switch"
+      model: "Cisco_4500"
+      location: "Building_A"
+    interfaces:
+      - name: "eth0"
+        ip_address: "10.1.1.1"
+        subnet_mask: "255.255.255.0"
+        status: "up"
+        bandwidth: 1000
+      - name: "eth1"
+        ip_address: "10.1.1.2"
+        subnet_mask: "255.255.255.0"
+        status: "up"
+        bandwidth: 1000
+
+  - device:
+      name: "Access-SW-1"
+      type: "switch"
+      model: "Cisco_2960"
+      location: "Floor_1"
+    interfaces:
+      - name: "eth0"
+        ip_address: "10.1.2.1"
+        subnet_mask: "255.255.255.0"
+        status: "up"
+        bandwidth: 100
+      - name: "eth1"
+        ip_address: "10.1.2.10"
+        subnet_mask: "255.255.255.0"
+        status: "up"
+        bandwidth: 100
+
+  - device:
+      name: "Edge-Router"
+      type: "router"
+      model: "Cisco_ASR_1000"
+      location: "Network_Edge"
+    interfaces:
+      - name: "eth0"
+        ip_address: "10.3.0.10"
+        subnet_mask: "255.255.255.0"
+        status: "up"
+        bandwidth: 1000
+      - name: "wan0"
+        ip_address: "203.0.113.1"
+        subnet_mask: "255.255.255.248"
+        status: "up"
+        bandwidth: 1000
+
+links:
+  - id: "core_redundancy"
+    source: "Core-SW-1"
+    target: "Core-SW-2"
+    properties:
+      bandwidth: "10Gbps"
+      latency: "0.1ms"
+      mtu: 9000
+      
+  - id: "core1_dist1"
+    source: "Core-SW-1"
+    target: "Dist-SW-1"
+    properties:
+      bandwidth: "1Gbps"
+      latency: "0.5ms"
+      mtu: 1500
+      
+  - id: "core2_dist1"
+    source: "Core-SW-2"
+    target: "Dist-SW-1"
+    properties:
+      bandwidth: "1Gbps"
+      latency: "0.5ms"
+      mtu: 1500
+      
+  - id: "dist1_access1"
+    source: "Dist-SW-1"
+    target: "Access-SW-1"
+    properties:
+      bandwidth: "1Gbps"
+      latency: "0.2ms"
+      mtu: 1500
+      
+  - id: "core1_edge"
+    source: "Core-SW-1"
+    target: "Edge-Router"
+    properties:
+      bandwidth: "1Gbps"
+      latency: "1ms"
+      mtu: 1500
+
+# Comprehensive fault scenarios for enterprise testing
+fault_scenarios:
+  - name: "Core_Switch_Failure"
+    type: "device_failure"
+    target: "Core-SW-1"
+    start_time: 30.0
+    duration: 25.0
+    description: "Test redundancy during core switch failure"
+    
+  - name: "Trunk_Link_Failure"
+    type: "link_failure"
+    target: "core1_dist1"
+    start_time: 60.0
+    duration: 20.0
+    description: "Test spanning tree convergence"
+    
+  - name: "MTU_Black_Hole"
+    type: "mtu_mismatch"
+    source: "Edge-Router"
+    target: "Core-SW-1"
+    packet_size: 1600
+    interface_mtu: 1500
+    start_time: 90.0
+    description: "Test PMTU discovery in enterprise network"
+    
+  - name: "Port_Shutdown"
+    type: "config_change"
+    target: "Access-SW-1"
+    start_time: 45.0
+    changes:
+      interface_status:
+        interface: "eth1"
+        status: "down"
+    description: "Test access layer redundancy"
+
+protocols:
+  routing:
+    - protocol: "OSPF"
+      area: "0.0.0.0"
+      devices: ["Edge-Router"]
+  switching:
+    - protocol: "STP"
+      devices: ["Core-SW-1", "Core-SW-2", "Dist-SW-1", "Access-SW-1"]
+      mode: "rapid-pvst"
+    - protocol: "VLAN"
+      devices: ["Core-SW-1", "Core-SW-2", "Dist-SW-1", "Access-SW-1"]
+      vlans:
+        - id: 10
+          name: "Users"
+        - id: 20
+          name: "Servers"
+
+monitoring:
+  metrics:
+    - "interface_utilization"
+    - "packet_loss"
+    - "latency"
+    - "protocol_convergence"
+    - "cpu_utilization"
+    - "memory_usage"
+  collection_interval: 0.5
+  export_format: "json"
+  alerts:
+    - metric: "interface_utilization"
+      threshold: 80
+      severity: "warning"
+    - metric: "packet_loss"
+      threshold: 1
+      severity: "critical"

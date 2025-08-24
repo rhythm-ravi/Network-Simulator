@@ -1,0 +1,139 @@
+!
+version 15.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname CORP-SW-01
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$3JZL$gJKLMNOP123456789
+!
+no aaa new-model
+system mtu routing 1500
+!
+!
+!
+!
+no ip icmp rate-limit unreachable
+no ip domain-lookup
+ip domain-name corpnet.local
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+vlan 10
+ name SALES
+!
+vlan 20
+ name MARKETING
+!
+vlan 30
+ name ENGINEERING
+!
+vlan 100
+ name MANAGEMENT
+!
+!
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/1
+ description ACCESS-PORT-SALES
+ switchport access vlan 10
+ switchport mode access
+ spanning-tree portfast
+ no shutdown
+!
+interface FastEthernet0/2
+ description ACCESS-PORT-MARKETING
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+ no shutdown
+!
+interface FastEthernet0/3
+ description ACCESS-PORT-ENGINEERING
+ switchport access vlan 30
+ switchport mode access
+ spanning-tree portfast
+ no shutdown
+!
+interface FastEthernet0/4
+ description TRUNK-TO-SW-02
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 10,20,30,100
+ switchport mode trunk
+ no shutdown
+!
+interface GigabitEthernet0/1
+ description UPLINK-TO-RTR-02
+ no switchport
+ ip address 192.168.100.2 255.255.255.252
+ duplex auto
+ speed auto
+ no shutdown
+!
+interface GigabitEthernet0/2
+ description SPARE-UPLINK
+ shutdown
+!
+interface Vlan10
+ description SALES-GATEWAY
+ ip address 192.168.10.254 255.255.255.0
+ no shutdown
+!
+interface Vlan20
+ description MARKETING-GATEWAY
+ ip address 192.168.20.254 255.255.255.0
+ no shutdown
+!
+interface Vlan30
+ description ENGINEERING-GATEWAY
+ ip address 192.168.30.254 255.255.255.0
+ no shutdown
+!
+interface Vlan100
+ description MANAGEMENT-VLAN
+ ip address 192.168.100.10 255.255.255.0
+ no shutdown
+!
+ip default-gateway 192.168.100.1
+!
+no ip http server
+no ip http secure-server
+!
+!
+access-list 10 permit 192.168.100.0 0.0.0.255
+access-list 10 deny any
+!
+control-plane
+!
+!
+line con 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line vty 0 4
+ access-class 10 in
+ privilege level 15
+ logging synchronous
+ transport input ssh
+line vty 5 15
+ access-class 10 in
+ privilege level 15
+ logging synchronous
+ transport input ssh
+!
+!
+end

@@ -1,0 +1,97 @@
+!
+version 15.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname PROBLEM-SW-MTU
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$3JZL$gJKLMNOP123456789
+!
+no aaa new-model
+system mtu routing 1500
+!
+!
+!
+!
+no ip icmp rate-limit unreachable
+no ip domain-lookup
+ip domain-name corpnet.local
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+vlan 10
+ name SALES
+!
+vlan 20
+ name MARKETING
+!
+!
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/1
+ description ACCESS-PORT-SALES
+ switchport access vlan 10
+ switchport mode access
+ spanning-tree portfast
+ no shutdown
+!
+interface FastEthernet0/2
+ description ACCESS-PORT-MARKETING
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+ no shutdown
+!
+interface GigabitEthernet0/1
+ description UPLINK-WITH-WRONG-MTU
+ no switchport
+ ip address 192.168.100.10 255.255.255.252
+ mtu 1400
+ duplex auto
+ speed auto
+ no shutdown
+!
+interface Vlan10
+ description DUPLICATE-GATEWAY-IP
+ ip address 192.168.10.254 255.255.255.0
+ no shutdown
+!
+interface Vlan20
+ description ANOTHER-DUPLICATE
+ ip address 192.168.20.254 255.255.255.0
+ no shutdown
+!
+ip default-gateway 192.168.200.1
+!
+no ip http server
+no ip http secure-server
+!
+!
+control-plane
+!
+!
+line con 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line vty 0 4
+ privilege level 15
+ logging synchronous
+ transport input ssh
+!
+!
+end

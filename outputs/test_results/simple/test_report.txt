@@ -1,0 +1,47 @@
+NETWORK SIMULATOR COMPREHENSIVE TEST REPORT
+================================================================================
+
+Test Start Time: 2025-08-24T08:07:49.082095
+Test End Time: None
+Output Directory: outputs/test_results/simple
+
+CONFIGURATION PARSING RESULTS
+----------------------------------------
+[OK] Successfully parsed 5 device configurations
+Devices: switch2, switch_problem, router2, router1, switch1
+
+TOPOLOGY GENERATION RESULTS
+----------------------------------------
+[OK] Generated topology with 5 nodes and 10 connections
+[OK] Visualization: Generated
+[WARN] Missing devices detected: 2
+
+ISSUE DETECTION RESULTS
+----------------------------------------
+Found 27 network issues
+Issues by type:
+  - duplicate_ip: 3
+  - inconsistent_subnet_masks: 1
+  - missing_spanning_tree: 3
+  - duplicate_ip_in_vlan: 2
+  - mtu_inconsistency: 1
+  - bgp_neighbor_mismatch: 1
+  - inconsistent_vlan_names: 4
+  - multiple_gateways: 5
+  - unused_acl: 4
+  - bandwidth_variation: 2
+  - mixed_routing_protocols: 1
+
+LOAD ANALYSIS RESULTS
+----------------------------------------
+Network Capacity: 807.1 Mbps
+Utilization: 162.8 Mbps (20.2%)
+Overloaded Links: 0
+Underutilized Links: 0
+Recommendations: 0
+
+OVERALL SUMMARY
+----------------------------------------
+Overall Test Status: [OK] PASSED
+Tests Passed: 4/4
+Success Rate: 100.0%

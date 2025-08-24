@@ -1,0 +1,39 @@
+NETWORK SIMULATOR COMPREHENSIVE TEST REPORT
+================================================================================
+
+Test Start Time: 2025-08-24T08:02:39.436098
+Test End Time: None
+Output Directory: outputs/test_results/enterprise
+
+CONFIGURATION PARSING RESULTS
+----------------------------------------
+[OK] Successfully parsed 7 device configurations
+Devices: DIST-R1, DIST-R2, ACCESS-SW1, ACCESS-SW2, FW-1, ACCESS-SW3, CORE-R1
+
+TOPOLOGY GENERATION RESULTS
+----------------------------------------
+[OK] Generated topology with 7 nodes and 8 connections
+[OK] Visualization: Generated
+[WARN] Missing devices detected: 5
+
+ISSUE DETECTION RESULTS
+----------------------------------------
+Found 16 network issues
+Issues by type:
+  - missing_spanning_tree: 3
+  - multiple_gateways: 6
+  - bandwidth_variation: 7
+
+LOAD ANALYSIS RESULTS
+----------------------------------------
+Network Capacity: 6000.0 Mbps
+Utilization: 1800.0 Mbps (30.0%)
+Overloaded Links: 0
+Underutilized Links: 0
+Recommendations: 0
+
+OVERALL SUMMARY
+----------------------------------------
+Overall Test Status: [OK] PASSED
+Tests Passed: 4/4
+Success Rate: 100.0%

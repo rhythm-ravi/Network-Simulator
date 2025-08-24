@@ -1,0 +1,49 @@
+device:
+  name: CAMPUS-CORE-R1
+  type: router
+  model: cisco-6500
+  location: main-datacenter
+
+interfaces:
+  - name: TenGigabitEthernet1/0/1
+    type: ethernet
+    ip_address: 172.16.1.1
+    subnet_mask: 255.255.255.252
+    bandwidth: 10000
+    status: up
+    description: "Link to CAMPUS-CORE-R2"
+    mtu: 1500
+    
+  - name: GigabitEthernet2/0/1
+    type: ethernet
+    ip_address: 172.20.1.1
+    subnet_mask: 255.255.255.252
+    bandwidth: 1000
+    status: up
+    description: "Link to LIBRARY-DIST-SW1"
+    mtu: 1500
+    
+  - name: GigabitEthernet2/0/2
+    type: ethernet
+    ip_address: 172.20.2.1
+    subnet_mask: 255.255.255.252
+    bandwidth: 1000
+    status: up
+    description: "Link to DORM-DIST-SW1"
+    mtu: 1500
+
+routing:
+  protocols:
+    - type: ospf
+      process_id: 100
+      router_id: 172.16.0.1
+      networks:
+        - network: 172.16.0.0
+          wildcard: 0.0.255.255
+          area: 0
+        - network: 172.20.0.0
+          wildcard: 0.0.255.255
+          area: 0
+        - network: 10.0.0.0
+          wildcard: 0.255.255.255
+          area: 0

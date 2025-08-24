@@ -1,0 +1,54 @@
+
+device:
+  name: ACCESS-SW1
+  type: switch
+  model: cisco-2960
+  location: building-a-floor-1
+
+interfaces:
+  - name: GigabitEthernet0/1
+    type: ethernet
+    ip_address: 10.0.10.2
+    subnet_mask: 255.255.255.252
+    bandwidth: 1000
+    status: up
+    description: "Uplink to DIST-R2"
+    
+  - name: FastEthernet0/1
+    type: ethernet
+    bandwidth: 100
+    status: up
+    description: "User port VLAN 10"
+    access_vlan: 10
+    
+  - name: FastEthernet0/2
+    type: ethernet
+    bandwidth: 100
+    status: up
+    description: "User port VLAN 10"
+    access_vlan: 10
+    
+  - name: FastEthernet0/24
+    type: ethernet
+    bandwidth: 100
+    status: up
+    description: "Trunk to other switches"
+    trunk_vlans: [10, 20, 30]
+
+vlans:
+  - id: 10
+    name: DATA
+    ip_address: 192.168.10.1
+    subnet_mask: 255.255.255.0
+  - id: 20
+    name: VOICE
+    ip_address: 192.168.20.1
+    subnet_mask: 255.255.255.0
+  - id: 30
+    name: MANAGEMENT
+    ip_address: 192.168.30.1
+    subnet_mask: 255.255.255.0
+
+spanning_tree:
+  mode: rapid-pvst
+  priority: 32768

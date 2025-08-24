@@ -1,0 +1,23 @@
+# Core dependencies
+numpy>=1.21.0
+matplotlib>=3.5.0
+networkx>=2.8.0
+
+# Simulation and modeling
+simpy>=4.0.0
+scipy>=1.7.0
+
+# Data handling
+pandas>=1.3.0
+
+# Logging and configuration
+pyyaml>=6.0
+
+# Testing (development)
+pytest>=7.0.0
+pytest-cov>=4.0.0
+
+# Code quality (development)
+black>=22.0.0
+flake8>=5.0.0
+mypy>=0.991

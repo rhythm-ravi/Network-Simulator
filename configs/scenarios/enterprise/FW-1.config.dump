@@ -1,0 +1,46 @@
+device:
+  name: FW-1
+  type: firewall
+  model: cisco-asa5520
+  location: datacenter-dmz
+
+interfaces:
+  - name: GigabitEthernet0/0
+    type: ethernet
+    ip_address: 203.0.113.10
+    subnet_mask: 255.255.255.248
+    bandwidth: 1000
+    status: up
+    description: "Outside Interface - Internet"
+    mtu: 1500
+    security_level: 0
+    
+  - name: GigabitEthernet0/1
+    type: ethernet
+    ip_address: 192.168.100.2
+    subnet_mask: 255.255.255.252
+    bandwidth: 1000
+    status: up
+    description: "Inside Interface - to CORE-R1"
+    mtu: 1500
+    security_level: 100
+
+static_routes:
+  - destination: 10.0.0.0
+    mask: 255.0.0.0
+    gateway: 192.168.100.1
+    administrative_distance: 1
+  - destination: 0.0.0.0
+    mask: 0.0.0.0
+    gateway: 203.0.113.1
+    administrative_distance: 1
+
+nat:
+  inside_interfaces:
+    - GigabitEthernet0/1
+  outside_interfaces:
+    - GigabitEthernet0/0
+  rules:
+    - source: 10.0.0.0/8
+      destination: any
+      translated_source: 203.0.113.10

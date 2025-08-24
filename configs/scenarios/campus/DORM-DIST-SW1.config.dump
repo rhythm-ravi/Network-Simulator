@@ -1,0 +1,57 @@
+device:
+  name: DORM-DIST-SW1
+  type: switch
+  model: cisco-4500
+  location: dormitory-building
+
+interfaces:
+  - name: GigabitEthernet1/1
+    type: ethernet
+    ip_address: 172.20.2.2
+    subnet_mask: 255.255.255.252
+    bandwidth: 1000
+    status: up
+    description: "Uplink to CAMPUS-CORE-R1"
+    mtu: 1500
+    
+  - name: GigabitEthernet1/2
+    type: ethernet
+    ip_address: 172.20.11.1
+    subnet_mask: 255.255.255.252
+    bandwidth: 1000
+    status: up
+    description: "Link to DORM-ACCESS-SW1"
+    mtu: 1500
+    
+  - name: GigabitEthernet1/3
+    type: ethernet
+    ip_address: 172.20.12.1
+    subnet_mask: 255.255.255.252
+    bandwidth: 1000
+    status: up
+    description: "Link to DORM-ACCESS-SW2"
+    mtu: 1500
+
+vlans:
+  - id: 10
+    name: STUDENTS_DORM
+    ip_address: 10.10.20.1
+    subnet_mask: 255.255.255.0
+  - id: 40
+    name: GUEST_DORM
+    ip_address: 10.40.20.1
+    subnet_mask: 255.255.255.0
+  - id: 99
+    name: MANAGEMENT
+    ip_address: 10.99.20.1
+    subnet_mask: 255.255.255.0
+
+spanning_tree:
+  mode: rapid-pvst
+  vlans:
+    - vlan_id: 10
+      priority: 24576
+    - vlan_id: 40
+      priority: 24576
+    - vlan_id: 99
+      priority: 24576

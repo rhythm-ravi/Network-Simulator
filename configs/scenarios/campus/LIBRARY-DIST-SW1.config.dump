@@ -1,0 +1,54 @@
+device:
+  name: LIBRARY-DIST-SW1
+  type: switch
+  model: cisco-4500
+  location: library-building
+
+interfaces:
+  - name: GigabitEthernet1/1
+    type: ethernet
+    ip_address: 172.20.1.2
+    subnet_mask: 255.255.255.252
+    bandwidth: 1000
+    status: up
+    description: "Uplink to CAMPUS-CORE-R1"
+    mtu: 1500
+    
+  - name: GigabitEthernet1/2
+    type: ethernet
+    ip_address: 172.20.10.1
+    subnet_mask: 255.255.255.252
+    bandwidth: 1000
+    status: up
+    description: "Link to LIBRARY-ACCESS-SW1"
+    mtu: 1500
+
+vlans:
+  - id: 10
+    name: STUDENTS_LIBRARY
+    ip_address: 10.10.10.1
+    subnet_mask: 255.255.255.0
+  - id: 20
+    name: STAFF_LIBRARY
+    ip_address: 10.20.10.1
+    subnet_mask: 255.255.255.0
+  - id: 30
+    name: SERVERS_LIBRARY
+    ip_address: 10.30.10.1
+    subnet_mask: 255.255.255.0
+  - id: 99
+    name: MANAGEMENT
+    ip_address: 10.99.10.1
+    subnet_mask: 255.255.255.0
+
+spanning_tree:
+  mode: rapid-pvst
+  vlans:
+    - vlan_id: 10
+      priority: 24576
+    - vlan_id: 20
+      priority: 24576
+    - vlan_id: 30
+      priority: 24576
+    - vlan_id: 99
+      priority: 24576

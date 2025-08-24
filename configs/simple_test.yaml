@@ -1,0 +1,85 @@
+# Simple test configuration for basic simulation testing
+#
+# This configuration demonstrates:
+# - Simple 3-node topology
+# - Basic fault injection
+# - Quick simulation execution
+
+simulation:
+  duration: 30.0  # 30 seconds simulation time  
+  real_time_factor: 0.05  # Run 20x faster than real time
+  inject_faults: true
+  output_dir: "./logs"
+
+devices:
+  - device:
+      name: "R1"
+      type: "router"
+    interfaces:
+      - name: "eth0"
+        ip_address: "192.168.1.1"
+        subnet_mask: "255.255.255.0"
+        status: "up"
+      - name: "eth1"
+        ip_address: "10.0.0.1" 
+        subnet_mask: "255.255.255.0"
+        status: "up"
+        
+  - device:
+      name: "R2" 
+      type: "router"
+    interfaces:
+      - name: "eth0"
+        ip_address: "10.0.0.2"
+        subnet_mask: "255.255.255.0"
+        status: "up"
+      - name: "eth1"
+        ip_address: "192.168.2.1"
+        subnet_mask: "255.255.255.0"
+        status: "up"
+        
+  - device:
+      name: "SW1"
+      type: "switch"
+    interfaces:
+      - name: "eth0"
+        ip_address: "192.168.1.10"
+        subnet_mask: "255.255.255.0"
+        status: "up"
+
+links:
+  - id: "r1_r2"
+    source: "R1"
+    target: "R2"
+    properties:
+      bandwidth: "100Mbps"
+      
+  - id: "r1_sw1"
+    source: "R1" 
+    target: "SW1"
+    properties:
+      bandwidth: "1Gbps"
+
+# Simple fault injection
+fault_scenarios:
+  - name: "Basic_Link_Failure"
+    type: "link_failure"
+    target: "r1_r2"
+    start_time: 10.0
+    duration: 5.0
+    
+  - name: "MTU_Test"
+    type: "mtu_mismatch"
+    source: "R1"
+    target: "R2"
+    packet_size: 1600
+    interface_mtu: 1500
+    start_time: 20.0
+
+protocols:
+  ospf:
+    enabled: true
+  arp:
+    enabled: true
+  neighbor_discovery:
+    enabled: true

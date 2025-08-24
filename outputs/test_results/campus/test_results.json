@@ -1,0 +1,220 @@
+{
+  "start_time": "2025-08-24T08:02:48.607047",
+  "config_parsing": {
+    "total_configs": 4,
+    "parsed_devices": [
+      "DORM-DIST-SW1",
+      "LIBRARY-DIST-SW1",
+      "CAMPUS-CORE-R2",
+      "CAMPUS-CORE-R1"
+    ],
+    "success": true,
+    "details": {
+      "DORM-DIST-SW1": {
+        "device_type": "switch",
+        "interface_count": 3,
+        "vlan_count": 3,
+        "routing_protocols": [],
+        "validation_status": "passed"
+      },
+      "LIBRARY-DIST-SW1": {
+        "device_type": "switch",
+        "interface_count": 2,
+        "vlan_count": 4,
+        "routing_protocols": [],
+        "validation_status": "passed"
+      },
+      "CAMPUS-CORE-R2": {
+        "device_type": "router",
+        "interface_count": 2,
+        "vlan_count": 0,
+        "routing_protocols": [
+          "ospf"
+        ],
+        "validation_status": "passed"
+      },
+      "CAMPUS-CORE-R1": {
+        "device_type": "router",
+        "interface_count": 3,
+        "vlan_count": 0,
+        "routing_protocols": [
+          "ospf"
+        ],
+        "validation_status": "passed"
+      }
+    }
+  },
+  "topology_generation": {
+    "nodes_count": 4,
+    "edges_count": 3,
+    "devices": [
+      "DORM-DIST-SW1",
+      "LIBRARY-DIST-SW1",
+      "CAMPUS-CORE-R2",
+      "CAMPUS-CORE-R1"
+    ],
+    "connections": [
+      [
+        "DORM-DIST-SW1",
+        "CAMPUS-CORE-R1"
+      ],
+      [
+        "LIBRARY-DIST-SW1",
+        "CAMPUS-CORE-R1"
+      ],
+      [
+        "CAMPUS-CORE-R2",
+        "CAMPUS-CORE-R1"
+      ]
+    ],
+    "visualization_generated": true,
+    "success": true,
+    "missing_devices": []
+  },
+  "issue_detection": {
+    "total_issues": 10,
+    "by_type": {
+      "missing_spanning_tree": 2,
+      "inconsistent_vlan_names": 1,
+      "multiple_gateways": 3,
+      "bandwidth_variation": 4
+    },
+    "by_severity": {
+      "warning": 6,
+      "info": 4
+    },
+    "by_device": {
+      "DORM-DIST-SW1": 2,
+      "LIBRARY-DIST-SW1": 2,
+      "global": 4,
+      "CAMPUS-CORE-R2": 1,
+      "CAMPUS-CORE-R1": 1
+    },
+    "success": true,
+    "details": [
+      {
+        "type": "missing_spanning_tree",
+        "device": "DORM-DIST-SW1",
+        "severity": "warning",
+        "description": "Device DORM-DIST-SW1 is missing spanning tree configuration for VLANs: {40, 10, 99}"
+      },
+      {
+        "type": "missing_spanning_tree",
+        "device": "LIBRARY-DIST-SW1",
+        "severity": "warning",
+        "description": "Device LIBRARY-DIST-SW1 is missing spanning tree configuration for VLANs: {10, 99, 20, 30}"
+      },
+      {
+        "type": "inconsistent_vlan_names",
+        "severity": "warning",
+        "description": "VLAN 10 has inconsistent names across devices",
+        "names": [
+          "STUDENTS_DORM",
+          "STUDENTS_LIBRARY"
+        ],
+        "devices": [
+          "DORM-DIST-SW1",
+          "LIBRARY-DIST-SW1"
+        ]
+      },
+      {
+        "type": "multiple_gateways",
+        "severity": "warning",
+        "description": "Multiple potential gateways detected in network 172.20.2.0/30",
+        "network": "172.20.2.0/30",
+        "gateways": [
+          "DORM-DIST-SW1 (172.20.2.2)",
+          "CAMPUS-CORE-R1 (172.20.2.1)"
+        ]
+      },
+      {
+        "type": "multiple_gateways",
+        "severity": "warning",
+        "description": "Multiple potential gateways detected in network 172.20.1.0/30",
+        "network": "172.20.1.0/30",
+        "gateways": [
+          "LIBRARY-DIST-SW1 (172.20.1.2)",
+          "CAMPUS-CORE-R1 (172.20.1.1)"
+        ]
+      },
+      {
+        "type": "multiple_gateways",
+        "severity": "warning",
+        "description": "Multiple potential gateways detected in network 172.16.1.0/30",
+        "network": "172.16.1.0/30",
+        "gateways": [
+          "CAMPUS-CORE-R2 (172.16.1.2)",
+          "CAMPUS-CORE-R1 (172.16.1.1)"
+        ]
+      },
+      {
+        "type": "bandwidth_variation",
+        "device": "DORM-DIST-SW1",
+        "severity": "info",
+        "description": "Device DORM-DIST-SW1 has varying bandwidth across interfaces",
+        "details": {
+          "GigabitEthernet1/1": "1000Mbps",
+          "GigabitEthernet1/2": "1000Mbps",
+          "GigabitEthernet1/3": "1000Mbps"
+        }
+      },
+      {
+        "type": "bandwidth_variation",
+        "device": "LIBRARY-DIST-SW1",
+        "severity": "info",
+        "description": "Device LIBRARY-DIST-SW1 has varying bandwidth across interfaces",
+        "details": {
+          "GigabitEthernet1/1": "1000Mbps",
+          "GigabitEthernet1/2": "1000Mbps"
+        }
+      },
+      {
+        "type": "bandwidth_variation",
+        "device": "CAMPUS-CORE-R2",
+        "severity": "info",
+        "description": "Device CAMPUS-CORE-R2 has varying bandwidth across interfaces",
+        "details": {
+          "TenGigabitEthernet1/0/1": "10000Mbps",
+          "GigabitEthernet2/0/1": "1000Mbps"
+        }
+      },
+      {
+        "type": "bandwidth_variation",
+        "device": "CAMPUS-CORE-R1",
+        "severity": "info",
+        "description": "Device CAMPUS-CORE-R1 has varying bandwidth across interfaces",
+        "details": {
+          "TenGigabitEthernet1/0/1": "10000Mbps",
+          "GigabitEthernet2/0/1": "1000Mbps",
+          "GigabitEthernet2/0/2": "1000Mbps"
+        }
+      }
+    ]
+  },
+  "load_analysis": {
+    "total_network_capacity": 12000.0,
+    "total_network_utilization": 3800.0,
+    "utilization_percentage": 31.666666666666664,
+    "overloaded_links": 0,
+    "underutilized_links": 0,
+    "capacity_issues": 0,
+    "recommendations_count": 0,
+    "success": true,
+    "recommendations": []
+  },
+  "fault_injection": {},
+  "simulation": {},
+  "overall_summary": {
+    "success": true,
+    "tests_passed": 4,
+    "total_tests": 4,
+    "success_rate": 100.0,
+    "test_categories": [
+      "config_parsing",
+      "topology_generation",
+      "issue_detection",
+      "load_analysis"
+    ]
+  },
+  "end_time": null
+}

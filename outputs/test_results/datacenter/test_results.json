@@ -1,0 +1,186 @@
+{
+  "start_time": "2025-08-24T08:02:57.514133",
+  "config_parsing": {
+    "total_configs": 3,
+    "parsed_devices": [
+      "DC-CORE-SW1",
+      "DC-AGG-SW1",
+      "DC-TOR-SW1"
+    ],
+    "success": true,
+    "details": {
+      "DC-CORE-SW1": {
+        "device_type": "switch",
+        "interface_count": 3,
+        "vlan_count": 4,
+        "routing_protocols": [
+          "ospf"
+        ],
+        "validation_status": "passed"
+      },
+      "DC-AGG-SW1": {
+        "device_type": "switch",
+        "interface_count": 3,
+        "vlan_count": 3,
+        "routing_protocols": [
+          "ospf"
+        ],
+        "validation_status": "passed"
+      },
+      "DC-TOR-SW1": {
+        "device_type": "switch",
+        "interface_count": 3,
+        "vlan_count": 3,
+        "routing_protocols": [],
+        "validation_status": "passed"
+      }
+    }
+  },
+  "topology_generation": {
+    "nodes_count": 3,
+    "edges_count": 2,
+    "devices": [
+      "DC-CORE-SW1",
+      "DC-AGG-SW1",
+      "DC-TOR-SW1"
+    ],
+    "connections": [
+      [
+        "DC-CORE-SW1",
+        "DC-AGG-SW1"
+      ],
+      [
+        "DC-AGG-SW1",
+        "DC-TOR-SW1"
+      ]
+    ],
+    "visualization_generated": true,
+    "success": true,
+    "missing_devices": []
+  },
+  "issue_detection": {
+    "total_issues": 9,
+    "by_type": {
+      "missing_spanning_tree": 3,
+      "mtu_inconsistency": 1,
+      "multiple_gateways": 2,
+      "bandwidth_variation": 3
+    },
+    "by_severity": {
+      "warning": 6,
+      "info": 3
+    },
+    "by_device": {
+      "DC-CORE-SW1": 2,
+      "DC-AGG-SW1": 2,
+      "DC-TOR-SW1": 3,
+      "global": 2
+    },
+    "success": true,
+    "details": [
+      {
+        "type": "missing_spanning_tree",
+        "device": "DC-CORE-SW1",
+        "severity": "warning",
+        "description": "Device DC-CORE-SW1 is missing spanning tree configuration for VLANs: {200, 100, 300, 999}"
+      },
+      {
+        "type": "missing_spanning_tree",
+        "device": "DC-AGG-SW1",
+        "severity": "warning",
+        "description": "Device DC-AGG-SW1 is missing spanning tree configuration for VLANs: {200, 100, 999}"
+      },
+      {
+        "type": "mtu_inconsistency",
+        "device": "DC-TOR-SW1",
+        "severity": "warning",
+        "description": "Device DC-TOR-SW1 has inconsistent MTU values across interfaces: {9000, 1500}"
+      },
+      {
+        "type": "missing_spanning_tree",
+        "device": "DC-TOR-SW1",
+        "severity": "warning",
+        "description": "Device DC-TOR-SW1 is missing spanning tree configuration for VLANs: {200, 100, 999}"
+      },
+      {
+        "type": "multiple_gateways",
+        "severity": "warning",
+        "description": "Multiple potential gateways detected in network 192.168.1.0/30",
+        "network": "192.168.1.0/30",
+        "gateways": [
+          "DC-CORE-SW1 (192.168.1.1)",
+          "DC-AGG-SW1 (192.168.1.2)"
+        ]
+      },
+      {
+        "type": "multiple_gateways",
+        "severity": "warning",
+        "description": "Multiple potential gateways detected in network 192.168.10.0/30",
+        "network": "192.168.10.0/30",
+        "gateways": [
+          "DC-AGG-SW1 (192.168.10.1)",
+          "DC-TOR-SW1 (192.168.10.2)"
+        ]
+      },
+      {
+        "type": "bandwidth_variation",
+        "device": "DC-CORE-SW1",
+        "severity": "info",
+        "description": "Device DC-CORE-SW1 has varying bandwidth across interfaces",
+        "details": {
+          "Ethernet1/1": "40000Mbps",
+          "Ethernet1/2": "10000Mbps",
+          "Ethernet1/3": "10000Mbps"
+        }
+      },
+      {
+        "type": "bandwidth_variation",
+        "device": "DC-AGG-SW1",
+        "severity": "info",
+        "description": "Device DC-AGG-SW1 has varying bandwidth across interfaces",
+        "details": {
+          "Ethernet1/1": "10000Mbps",
+          "Ethernet1/2": "10000Mbps",
+          "Ethernet1/3": "10000Mbps"
+        }
+      },
+      {
+        "type": "bandwidth_variation",
+        "device": "DC-TOR-SW1",
+        "severity": "info",
+        "description": "Device DC-TOR-SW1 has varying bandwidth across interfaces",
+        "details": {
+          "Ethernet1/1": "10000Mbps",
+          "Ethernet1/2": "1000Mbps",
+          "Ethernet1/3": "1000Mbps"
+        }
+      }
+    ]
+  },
+  "load_analysis": {
+    "total_network_capacity": 20000.0,
+    "total_network_utilization": 4000.0,
+    "utilization_percentage": 20.0,
+    "overloaded_links": 0,
+    "underutilized_links": 0,
+    "capacity_issues": 0,
+    "recommendations_count": 0,
+    "success": true,
+    "recommendations": []
+  },
+  "fault_injection": {},
+  "simulation": {},
+  "overall_summary": {
+    "success": true,
+    "tests_passed": 4,
+    "total_tests": 4,
+    "success_rate": 100.0,
+    "test_categories": [
+      "config_parsing",
+      "topology_generation",
+      "issue_detection",
+      "load_analysis"
+    ]
+  },
+  "end_time": null
+}

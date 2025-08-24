@@ -1,0 +1,67 @@
+device:
+  name: DC-AGG-SW1
+  type: switch
+  model: cisco-nexus-5000
+  location: datacenter-agg-rack-1
+
+interfaces:
+  - name: Ethernet1/1
+    type: ethernet
+    ip_address: 192.168.1.2
+    subnet_mask: 255.255.255.252
+    bandwidth: 10000
+    status: up
+    description: "Uplink to DC-CORE-SW1"
+    mtu: 9000
+    
+  - name: Ethernet1/2
+    type: ethernet
+    ip_address: 192.168.10.1
+    subnet_mask: 255.255.255.252
+    bandwidth: 10000
+    status: up
+    description: "Link to DC-TOR-SW1"
+    mtu: 9000
+    
+  - name: Ethernet1/3
+    type: ethernet
+    ip_address: 192.168.11.1
+    subnet_mask: 255.255.255.252
+    bandwidth: 10000
+    status: up
+    description: "Link to DC-TOR-SW2"
+    mtu: 9000
+
+vlans:
+  - id: 100
+    name: WEB_SERVERS
+    ip_address: 192.168.100.10
+    subnet_mask: 255.255.255.0
+  - id: 200
+    name: APP_SERVERS
+    ip_address: 192.168.200.10
+    subnet_mask: 255.255.255.0
+  - id: 999
+    name: MANAGEMENT
+    ip_address: 192.168.999.10
+    subnet_mask: 255.255.255.0
+
+spanning_tree:
+  mode: rapid-pvst
+  vlans:
+    - vlan_id: 100
+      priority: 8192
+    - vlan_id: 200
+      priority: 8192
+    - vlan_id: 999
+      priority: 8192
+
+routing:
+  protocols:
+    - type: ospf
+      process_id: 1
+      router_id: 192.168.0.11
+      networks:
+        - network: 192.168.0.0
+          wildcard: 0.0.255.255
+          area: 0

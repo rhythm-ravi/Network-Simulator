@@ -1,0 +1,351 @@
+2025-08-24 04:05:36,029 - __main__ - INFO - Initialized Network Simulator Testing Framework
+================================================================================
+NETWORK SIMULATOR COMPREHENSIVE TESTING FRAMEWORK
+================================================================================
+Start Time: 2025-08-24T04:05:36.029757
+Config Directory: configs/scenarios/enterprise
+Output Directory: outputs/test_results/enterprise
+================================================================================
+2025-08-24 04:05:36,029 - __main__ - INFO - ============================================================
+2025-08-24 04:05:36,029 - __main__ - INFO - STEP 1: TESTING CONFIGURATION PARSING
+2025-08-24 04:05:36,029 - __main__ - INFO - ============================================================
+2025-08-24 04:05:36,030 - core.config_parser - INFO - Parsing configuration file: DIST-R1.config.dump for device: DIST-R1
+2025-08-24 04:05:36,030 - core.config_parser - DEBUG - Detected YAML format configuration for DIST-R1
+2025-08-24 04:05:36,034 - core.config_parser - INFO - Successfully parsed configuration for DIST-R1
+2025-08-24 04:05:36,034 - core.config_parser - INFO - Parsing configuration file: DIST-R2.config.dump for device: DIST-R2
+2025-08-24 04:05:36,034 - core.config_parser - DEBUG - Detected YAML format configuration for DIST-R2
+2025-08-24 04:05:36,037 - core.config_parser - INFO - Successfully parsed configuration for DIST-R2
+2025-08-24 04:05:36,037 - core.config_parser - INFO - Parsing configuration file: ACCESS-SW1.config.dump for device: ACCESS-SW1
+2025-08-24 04:05:36,037 - core.config_parser - DEBUG - Detected YAML format configuration for ACCESS-SW1
+2025-08-24 04:05:36,041 - core.config_parser - INFO - Successfully parsed configuration for ACCESS-SW1
+2025-08-24 04:05:36,041 - core.config_parser - INFO - Parsing configuration file: ACCESS-SW2.config.dump for device: ACCESS-SW2
+2025-08-24 04:05:36,041 - core.config_parser - DEBUG - Detected YAML format configuration for ACCESS-SW2
+2025-08-24 04:05:36,045 - core.config_parser - INFO - Successfully parsed configuration for ACCESS-SW2
+2025-08-24 04:05:36,045 - core.config_parser - INFO - Parsing configuration file: FW-1.config.dump for device: FW-1
+2025-08-24 04:05:36,045 - core.config_parser - DEBUG - Detected YAML format configuration for FW-1
+2025-08-24 04:05:36,047 - core.config_parser - INFO - Successfully parsed configuration for FW-1
+2025-08-24 04:05:36,047 - core.config_parser - INFO - Parsing configuration file: ACCESS-SW3.config.dump for device: ACCESS-SW3
+2025-08-24 04:05:36,047 - core.config_parser - DEBUG - Detected YAML format configuration for ACCESS-SW3
+2025-08-24 04:05:36,050 - core.config_parser - INFO - Successfully parsed configuration for ACCESS-SW3
+2025-08-24 04:05:36,050 - core.config_parser - INFO - Parsing configuration file: CORE-R1.config.dump for device: CORE-R1
+2025-08-24 04:05:36,051 - core.config_parser - DEBUG - Detected YAML format configuration for CORE-R1
+2025-08-24 04:05:36,053 - core.config_parser - INFO - Successfully parsed configuration for CORE-R1
+2025-08-24 04:05:36,053 - __main__ - INFO - [OK] Parsed DIST-R1: router with 5 interfaces
+2025-08-24 04:05:36,053 - __main__ - INFO - [OK] Parsed DIST-R2: router with 4 interfaces
+2025-08-24 04:05:36,053 - __main__ - INFO - [OK] Parsed ACCESS-SW1: switch with 4 interfaces
+2025-08-24 04:05:36,053 - __main__ - INFO - [OK] Parsed ACCESS-SW2: switch with 4 interfaces
+2025-08-24 04:05:36,053 - __main__ - INFO - [OK] Parsed FW-1: firewall with 2 interfaces
+2025-08-24 04:05:36,053 - __main__ - INFO - [OK] Parsed ACCESS-SW3: switch with 4 interfaces
+2025-08-24 04:05:36,053 - __main__ - INFO - [OK] Parsed CORE-R1: router with 3 interfaces
+2025-08-24 04:05:36,053 - __main__ - INFO - Configuration parsing: 7 devices parsed successfully
+2025-08-24 04:05:36,054 - __main__ - INFO - ============================================================
+2025-08-24 04:05:36,054 - __main__ - INFO - STEP 2: TESTING TOPOLOGY GENERATION
+2025-08-24 04:05:36,054 - __main__ - INFO - ============================================================
+2025-08-24 04:05:36,054 - core.config_parser - INFO - Parsing configuration file: DIST-R1.config.dump for device: DIST-R1
+2025-08-24 04:05:36,054 - core.config_parser - DEBUG - Detected YAML format configuration for DIST-R1
+2025-08-24 04:05:36,057 - core.config_parser - INFO - Successfully parsed configuration for DIST-R1
+2025-08-24 04:05:36,057 - core.config_parser - INFO - Parsing configuration file: DIST-R2.config.dump for device: DIST-R2
+2025-08-24 04:05:36,057 - core.config_parser - DEBUG - Detected YAML format configuration for DIST-R2
+2025-08-24 04:05:36,060 - core.config_parser - INFO - Successfully parsed configuration for DIST-R2
+2025-08-24 04:05:36,061 - core.config_parser - INFO - Parsing configuration file: ACCESS-SW1.config.dump for device: ACCESS-SW1
+2025-08-24 04:05:36,061 - core.config_parser - DEBUG - Detected YAML format configuration for ACCESS-SW1
+2025-08-24 04:05:36,064 - core.config_parser - INFO - Successfully parsed configuration for ACCESS-SW1
+2025-08-24 04:05:36,064 - core.config_parser - INFO - Parsing configuration file: ACCESS-SW2.config.dump for device: ACCESS-SW2
+2025-08-24 04:05:36,064 - core.config_parser - DEBUG - Detected YAML format configuration for ACCESS-SW2
+2025-08-24 04:05:36,068 - core.config_parser - INFO - Successfully parsed configuration for ACCESS-SW2
+2025-08-24 04:05:36,068 - core.config_parser - INFO - Parsing configuration file: FW-1.config.dump for device: FW-1
+2025-08-24 04:05:36,068 - core.config_parser - DEBUG - Detected YAML format configuration for FW-1
+2025-08-24 04:05:36,070 - core.config_parser - INFO - Successfully parsed configuration for FW-1
+2025-08-24 04:05:36,070 - core.config_parser - INFO - Parsing configuration file: ACCESS-SW3.config.dump for device: ACCESS-SW3
+2025-08-24 04:05:36,070 - core.config_parser - DEBUG - Detected YAML format configuration for ACCESS-SW3
+2025-08-24 04:05:36,073 - core.config_parser - INFO - Successfully parsed configuration for ACCESS-SW3
+2025-08-24 04:05:36,073 - core.config_parser - INFO - Parsing configuration file: CORE-R1.config.dump for device: CORE-R1
+2025-08-24 04:05:36,073 - core.config_parser - DEBUG - Detected YAML format configuration for CORE-R1
+2025-08-24 04:05:36,076 - core.config_parser - INFO - Successfully parsed configuration for CORE-R1
+2025-08-24 04:05:36,076 - core.topology_generator - DEBUG - Added device to topology: DIST-R1 (router)
+2025-08-24 04:05:36,076 - core.topology_generator - DEBUG - Added device to topology: DIST-R2 (router)
+2025-08-24 04:05:36,076 - core.topology_generator - DEBUG - Added device to topology: ACCESS-SW1 (switch)
+2025-08-24 04:05:36,076 - core.topology_generator - DEBUG - Added device to topology: ACCESS-SW2 (switch)
+2025-08-24 04:05:36,076 - core.topology_generator - DEBUG - Added device to topology: FW-1 (firewall)
+2025-08-24 04:05:36,076 - core.topology_generator - DEBUG - Added device to topology: ACCESS-SW3 (switch)
+2025-08-24 04:05:36,076 - core.topology_generator - DEBUG - Added device to topology: CORE-R1 (router)
+2025-08-24 04:05:36,076 - core.topology_generator - DEBUG - Discovered link by IP: DIST-R1.GigabitEthernet0/0/0 <-> CORE-R1.GigabitEthernet0/0/1 via 10.1.1.0/30
+2025-08-24 04:05:36,077 - core.topology_generator - DEBUG - Discovered link by IP: DIST-R1.GigabitEthernet0/2/0 <-> ACCESS-SW1.GigabitEthernet1/0/1 via 10.1.3.0/30
+2025-08-24 04:05:36,077 - core.topology_generator - DEBUG - Discovered link by IP: DIST-R1.GigabitEthernet0/2/1 <-> ACCESS-SW2.GigabitEthernet1/0/1 via 10.1.4.0/30
+2025-08-24 04:05:36,077 - core.topology_generator - DEBUG - Discovered link by IP: DIST-R2.GigabitEthernet0/0/0 <-> CORE-R1.GigabitEthernet0/0/2 via 10.1.2.0/30
+2025-08-24 04:05:36,077 - core.topology_generator - DEBUG - Discovered link by IP: DIST-R2.GigabitEthernet0/2/0 <-> ACCESS-SW3.GigabitEthernet1/0/1 via 10.1.5.0/30
+2025-08-24 04:05:36,077 - core.topology_generator - DEBUG - Discovered link by IP: FW-1.GigabitEthernet0/1 <-> CORE-R1.GigabitEthernet0/0/0 via 192.168.100.0/30
+2025-08-24 04:05:36,077 - core.topology_generator - DEBUG - Discovered link by description: ACCESS-SW2.GigabitEthernet1/0/2 <-> ACCESS-SW1.None
+2025-08-24 04:05:36,077 - core.topology_generator - DEBUG - Discovered link by description: ACCESS-SW3.GigabitEthernet1/0/2 <-> ACCESS-SW1.None
+2025-08-24 04:05:36,077 - core.topology_generator - INFO - Generated topology with 7 devices and 8 links
+2025-08-24 04:05:36,078 - matplotlib.pyplot - DEBUG - Loaded backend agg version v2.2.
+2025-08-24 04:05:36,089 - matplotlib.font_manager - DEBUG - findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0.
+2025-08-24 04:05:36,089 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmr10.ttf', name='cmr10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,089 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-BoldOblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-24 04:05:36,089 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFourSymBol.ttf', name='STIXSizeFourSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-24 04:05:36,089 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizTwoSymReg.ttf', name='STIXSizeTwoSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,089 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-BoldItalic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-24 04:05:36,089 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-Bold.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-24 04:05:36,089 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizThreeSymReg.ttf', name='STIXSizeThreeSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,090 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-BoldOblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 1.335
+2025-08-24 04:05:36,090 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizThreeSymBol.ttf', name='STIXSizeThreeSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-24 04:05:36,090 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmmi10.ttf', name='cmmi10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,090 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmss10.ttf', name='cmss10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,090 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-Oblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-24 04:05:36,090 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmsy10.ttf', name='cmsy10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,090 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneral.ttf', name='STIXGeneral', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,090 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizOneSymBol.ttf', name='STIXSizeOneSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-24 04:05:36,090 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizOneSymReg.ttf', name='STIXSizeOneSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,090 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniBol.ttf', name='STIXNonUnicode', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-24 04:05:36,090 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerifDisplay.ttf', name='DejaVu Serif Display', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,090 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUni.ttf', name='STIXNonUnicode', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,090 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmb10.ttf', name='cmb10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,090 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-Italic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-24 04:05:36,090 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniBolIta.ttf', name='STIXNonUnicode', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-24 04:05:36,090 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFourSymReg.ttf', name='STIXSizeFourSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,090 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmtt10.ttf', name='cmtt10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,090 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-Oblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 1.05
+2025-08-24 04:05:36,090 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansDisplay.ttf', name='DejaVu Sans Display', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,090 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralItalic.ttf', name='STIXGeneral', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-24 04:05:36,090 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-24 04:05:36,091 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizTwoSymBol.ttf', name='STIXSizeTwoSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-24 04:05:36,091 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,091 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniIta.ttf', name='STIXNonUnicode', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-24 04:05:36,091 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFiveSymReg.ttf', name='STIXSizeFiveSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,091 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralBolIta.ttf', name='STIXGeneral', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-24 04:05:36,091 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 0.33499999999999996
+2025-08-24 04:05:36,091 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmex10.ttf', name='cmex10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,091 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,091 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 0.05
+2025-08-24 04:05:36,091 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralBol.ttf', name='STIXGeneral', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-24 04:05:36,091 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansCondensed-Oblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=400, stretch='condensed', size='scalable')) = 1.25
+2025-08-24 04:05:36,091 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-Hairline.ttf', name='Lato', style='normal', variant='normal', weight=250, stretch='normal', size='scalable')) = 10.1925
+2025-08-24 04:05:36,091 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf', name='Liberation Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,091 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-Medium.ttf', name='Lato', style='normal', variant='normal', weight=500, stretch='normal', size='scalable')) = 10.145
+2025-08-24 04:05:36,091 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansCondensed-BoldOblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=700, stretch='condensed', size='scalable')) = 1.535
+2025-08-24 04:05:36,091 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerifCondensed.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='condensed', size='scalable')) = 10.25
+2025-08-24 04:05:36,091 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerifCondensed-BoldItalic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=700, stretch='condensed', size='scalable')) = 11.535
+2025-08-24 04:05:36,091 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansCondensed-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='condensed', size='scalable')) = 0.5349999999999999
+2025-08-24 04:05:36,091 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,091 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-Semibold.ttf', name='Lato', style='normal', variant='normal', weight=600, stretch='normal', size='scalable')) = 10.24
+2025-08-24 04:05:36,091 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 0.33499999999999996
+2025-08-24 04:05:36,091 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-BoldItalic.ttf', name='Lato', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-24 04:05:36,091 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationMono-BoldItalic.ttf', name='Liberation Mono', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-24 04:05:36,092 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-Heavy.ttf', name='Lato', style='normal', variant='normal', weight=800, stretch='normal', size='scalable')) = 10.43
+2025-08-24 04:05:36,092 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans-Oblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 1.05
+2025-08-24 04:05:36,092 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf', name='Liberation Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-24 04:05:36,092 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans-BoldOblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 1.335
+2025-08-24 04:05:36,092 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-SemiboldItalic.ttf', name='Lato', style='italic', variant='normal', weight=600, stretch='normal', size='scalable')) = 11.24
+2025-08-24 04:05:36,092 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationSerif-BoldItalic.ttf', name='Liberation Serif', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-24 04:05:36,092 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-Black.ttf', name='Lato', style='normal', variant='normal', weight=900, stretch='normal', size='scalable')) = 10.525
+2025-08-24 04:05:36,092 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationSans-Italic.ttf', name='Liberation Sans', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-24 04:05:36,092 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Oblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-24 04:05:36,092 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationSerif-Regular.ttf', name='Liberation Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,092 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans-ExtraLight.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=200, stretch='normal', size='scalable')) = 0.24
+2025-08-24 04:05:36,092 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-Thin.ttf', name='Lato', style='normal', variant='normal', weight=275, stretch='normal', size='scalable')) = 10.16875
+2025-08-24 04:05:36,092 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-HeavyItalic.ttf', name='Lato', style='italic', variant='normal', weight=800, stretch='normal', size='scalable')) = 11.43
+2025-08-24 04:05:36,092 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-24 04:05:36,092 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,092 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationSerif-Bold.ttf', name='Liberation Serif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-24 04:05:36,092 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-Light.ttf', name='Lato', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2025-08-24 04:05:36,092 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationSans-BoldItalic.ttf', name='Liberation Sans', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-24 04:05:36,092 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerifCondensed-Italic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=400, stretch='condensed', size='scalable')) = 11.25
+2025-08-24 04:05:36,092 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationMono-Bold.ttf', name='Liberation Mono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-24 04:05:36,092 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerif-BoldItalic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-24 04:05:36,092 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-Bold.ttf', name='Lato', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-24 04:05:36,093 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono-BoldOblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-24 04:05:36,093 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-Regular.ttf', name='Lato', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,093 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-LightItalic.ttf', name='Lato', style='italic', variant='normal', weight=300, stretch='normal', size='scalable')) = 11.145
+2025-08-24 04:05:36,093 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationMono-Italic.ttf', name='Liberation Mono', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-24 04:05:36,093 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-24 04:05:36,093 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerif-Italic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-24 04:05:36,093 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-BlackItalic.ttf', name='Lato', style='italic', variant='normal', weight=900, stretch='normal', size='scalable')) = 11.525
+2025-08-24 04:05:36,093 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerifCondensed-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='condensed', size='scalable')) = 10.535
+2025-08-24 04:05:36,093 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-HairlineItalic.ttf', name='Lato', style='italic', variant='normal', weight=250, stretch='normal', size='scalable')) = 11.1925
+2025-08-24 04:05:36,093 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansCondensed.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='condensed', size='scalable')) = 0.25
+2025-08-24 04:05:36,093 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-MediumItalic.ttf', name='Lato', style='italic', variant='normal', weight=500, stretch='normal', size='scalable')) = 11.145
+2025-08-24 04:05:36,093 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 0.05
+2025-08-24 04:05:36,093 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-Italic.ttf', name='Lato', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-24 04:05:36,093 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationMono-Regular.ttf', name='Liberation Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,093 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationSerif-Italic.ttf', name='Liberation Serif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-24 04:05:36,093 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuMathTeXGyre.ttf', name='DejaVu Math TeX Gyre', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,093 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-ThinItalic.ttf', name='Lato', style='italic', variant='normal', weight=275, stretch='normal', size='scalable')) = 11.16875
+2025-08-24 04:05:36,093 - matplotlib.font_manager - DEBUG - findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=10.0 to DejaVu Sans ('/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.
+2025-08-24 04:05:36,126 - matplotlib.font_manager - DEBUG - findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=16.0.
+2025-08-24 04:05:36,126 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmr10.ttf', name='cmr10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,127 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-BoldOblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-24 04:05:36,127 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFourSymBol.ttf', name='STIXSizeFourSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-24 04:05:36,127 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizTwoSymReg.ttf', name='STIXSizeTwoSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,127 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-BoldItalic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-24 04:05:36,127 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-Bold.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-24 04:05:36,127 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizThreeSymReg.ttf', name='STIXSizeThreeSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,127 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-BoldOblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 1.335
+2025-08-24 04:05:36,127 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizThreeSymBol.ttf', name='STIXSizeThreeSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-24 04:05:36,127 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmmi10.ttf', name='cmmi10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,127 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmss10.ttf', name='cmss10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,127 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono-Oblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-24 04:05:36,127 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmsy10.ttf', name='cmsy10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,127 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneral.ttf', name='STIXGeneral', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,127 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizOneSymBol.ttf', name='STIXSizeOneSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-24 04:05:36,127 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizOneSymReg.ttf', name='STIXSizeOneSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,127 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniBol.ttf', name='STIXNonUnicode', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-24 04:05:36,127 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerifDisplay.ttf', name='DejaVu Serif Display', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,127 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUni.ttf', name='STIXNonUnicode', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,127 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmb10.ttf', name='cmb10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,127 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-Italic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-24 04:05:36,128 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniBolIta.ttf', name='STIXNonUnicode', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-24 04:05:36,128 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFourSymReg.ttf', name='STIXSizeFourSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,128 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmtt10.ttf', name='cmtt10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,128 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-Oblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 1.05
+2025-08-24 04:05:36,128 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansDisplay.ttf', name='DejaVu Sans Display', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,128 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralItalic.ttf', name='STIXGeneral', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-24 04:05:36,128 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-24 04:05:36,128 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizTwoSymBol.ttf', name='STIXSizeTwoSym', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-24 04:05:36,128 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSerif.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,128 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXNonUniIta.ttf', name='STIXNonUnicode', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-24 04:05:36,128 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXSizFiveSymReg.ttf', name='STIXSizeFiveSym', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,128 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralBolIta.ttf', name='STIXGeneral', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-24 04:05:36,128 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 0.33499999999999996
+2025-08-24 04:05:36,128 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/cmex10.ttf', name='cmex10', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,128 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSansMono.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,128 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 0.05
+2025-08-24 04:05:36,128 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/STIXGeneralBol.ttf', name='STIXGeneral', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-24 04:05:36,128 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansCondensed-Oblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=400, stretch='condensed', size='scalable')) = 1.25
+2025-08-24 04:05:36,128 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-Hairline.ttf', name='Lato', style='normal', variant='normal', weight=250, stretch='normal', size='scalable')) = 10.1925
+2025-08-24 04:05:36,128 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf', name='Liberation Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,128 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-Medium.ttf', name='Lato', style='normal', variant='normal', weight=500, stretch='normal', size='scalable')) = 10.145
+2025-08-24 04:05:36,128 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansCondensed-BoldOblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=700, stretch='condensed', size='scalable')) = 1.535
+2025-08-24 04:05:36,128 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerifCondensed.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='condensed', size='scalable')) = 10.25
+2025-08-24 04:05:36,129 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerifCondensed-BoldItalic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=700, stretch='condensed', size='scalable')) = 11.535
+2025-08-24 04:05:36,129 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansCondensed-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='condensed', size='scalable')) = 0.5349999999999999
+2025-08-24 04:05:36,129 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,129 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-Semibold.ttf', name='Lato', style='normal', variant='normal', weight=600, stretch='normal', size='scalable')) = 10.24
+2025-08-24 04:05:36,129 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 0.33499999999999996
+2025-08-24 04:05:36,129 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-BoldItalic.ttf', name='Lato', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-24 04:05:36,129 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationMono-BoldItalic.ttf', name='Liberation Mono', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-24 04:05:36,129 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-Heavy.ttf', name='Lato', style='normal', variant='normal', weight=800, stretch='normal', size='scalable')) = 10.43
+2025-08-24 04:05:36,129 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans-Oblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 1.05
+2025-08-24 04:05:36,129 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf', name='Liberation Sans', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-24 04:05:36,129 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans-BoldOblique.ttf', name='DejaVu Sans', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 1.335
+2025-08-24 04:05:36,129 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-SemiboldItalic.ttf', name='Lato', style='italic', variant='normal', weight=600, stretch='normal', size='scalable')) = 11.24
+2025-08-24 04:05:36,129 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationSerif-BoldItalic.ttf', name='Liberation Serif', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-24 04:05:36,129 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-Black.ttf', name='Lato', style='normal', variant='normal', weight=900, stretch='normal', size='scalable')) = 10.525
+2025-08-24 04:05:36,129 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationSans-Italic.ttf', name='Liberation Sans', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-24 04:05:36,129 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Oblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-24 04:05:36,129 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationSerif-Regular.ttf', name='Liberation Serif', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,129 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans-ExtraLight.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=200, stretch='normal', size='scalable')) = 0.24
+2025-08-24 04:05:36,129 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-Thin.ttf', name='Lato', style='normal', variant='normal', weight=275, stretch='normal', size='scalable')) = 10.16875
+2025-08-24 04:05:36,129 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-HeavyItalic.ttf', name='Lato', style='italic', variant='normal', weight=800, stretch='normal', size='scalable')) = 11.43
+2025-08-24 04:05:36,129 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-24 04:05:36,129 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf', name='DejaVu Sans Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,130 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationSerif-Bold.ttf', name='Liberation Serif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-24 04:05:36,130 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-Light.ttf', name='Lato', style='normal', variant='normal', weight=300, stretch='normal', size='scalable')) = 10.145
+2025-08-24 04:05:36,130 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationSans-BoldItalic.ttf', name='Liberation Sans', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-24 04:05:36,130 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerifCondensed-Italic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=400, stretch='condensed', size='scalable')) = 11.25
+2025-08-24 04:05:36,130 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationMono-Bold.ttf', name='Liberation Mono', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-24 04:05:36,130 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerif-BoldItalic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-24 04:05:36,130 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-Bold.ttf', name='Lato', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-24 04:05:36,130 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansMono-BoldOblique.ttf', name='DejaVu Sans Mono', style='oblique', variant='normal', weight=700, stretch='normal', size='scalable')) = 11.335
+2025-08-24 04:05:36,130 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-Regular.ttf', name='Lato', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,130 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-LightItalic.ttf', name='Lato', style='italic', variant='normal', weight=300, stretch='normal', size='scalable')) = 11.145
+2025-08-24 04:05:36,130 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationMono-Italic.ttf', name='Liberation Mono', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-24 04:05:36,130 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='normal', size='scalable')) = 10.335
+2025-08-24 04:05:36,130 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerif-Italic.ttf', name='DejaVu Serif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-24 04:05:36,130 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-BlackItalic.ttf', name='Lato', style='italic', variant='normal', weight=900, stretch='normal', size='scalable')) = 11.525
+2025-08-24 04:05:36,130 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSerifCondensed-Bold.ttf', name='DejaVu Serif', style='normal', variant='normal', weight=700, stretch='condensed', size='scalable')) = 10.535
+2025-08-24 04:05:36,130 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-HairlineItalic.ttf', name='Lato', style='italic', variant='normal', weight=250, stretch='normal', size='scalable')) = 11.1925
+2025-08-24 04:05:36,130 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSansCondensed.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='condensed', size='scalable')) = 0.25
+2025-08-24 04:05:36,130 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-MediumItalic.ttf', name='Lato', style='italic', variant='normal', weight=500, stretch='normal', size='scalable')) = 11.145
+2025-08-24 04:05:36,130 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', name='DejaVu Sans', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 0.05
+2025-08-24 04:05:36,130 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-Italic.ttf', name='Lato', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-24 04:05:36,130 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationMono-Regular.ttf', name='Liberation Mono', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,130 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/liberation/LiberationSerif-Italic.ttf', name='Liberation Serif', style='italic', variant='normal', weight=400, stretch='normal', size='scalable')) = 11.05
+2025-08-24 04:05:36,131 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/dejavu/DejaVuMathTeXGyre.ttf', name='DejaVu Math TeX Gyre', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.05
+2025-08-24 04:05:36,131 - matplotlib.font_manager - DEBUG - findfont: score(FontEntry(fname='/usr/share/fonts/truetype/lato/Lato-ThinItalic.ttf', name='Lato', style='italic', variant='normal', weight=275, stretch='normal', size='scalable')) = 11.16875
+2025-08-24 04:05:36,131 - matplotlib.font_manager - DEBUG - findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=16.0 to DejaVu Sans ('/home/runner/.local/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 0.050000.
+2025-08-24 04:05:36,409 - core.topology_generator - INFO - Topology visualization saved to outputs/test_results/enterprise/network_topology.png
+2025-08-24 04:05:36,409 - __main__ - INFO - [OK] Topology generated: 7 nodes, 8 connections
+2025-08-24 04:05:36,410 - __main__ - INFO - [OK] Visualization saved: outputs/test_results/enterprise/network_topology.png
+2025-08-24 04:05:36,410 - __main__ - WARNING - [WARN] Detected 5 potentially missing devices
+2025-08-24 04:05:36,410 - __main__ - INFO - ============================================================
+2025-08-24 04:05:36,410 - __main__ - INFO - STEP 3: TESTING ISSUE DETECTION
+2025-08-24 04:05:36,410 - __main__ - INFO - ============================================================
+2025-08-24 04:05:36,410 - core.config_parser - INFO - Parsing configuration file: DIST-R1.config.dump for device: DIST-R1
+2025-08-24 04:05:36,410 - core.config_parser - DEBUG - Detected YAML format configuration for DIST-R1
+2025-08-24 04:05:36,414 - core.config_parser - INFO - Successfully parsed configuration for DIST-R1
+2025-08-24 04:05:36,414 - core.config_parser - INFO - Parsing configuration file: DIST-R2.config.dump for device: DIST-R2
+2025-08-24 04:05:36,414 - core.config_parser - DEBUG - Detected YAML format configuration for DIST-R2
+2025-08-24 04:05:36,417 - core.config_parser - INFO - Successfully parsed configuration for DIST-R2
+2025-08-24 04:05:36,417 - core.config_parser - INFO - Parsing configuration file: ACCESS-SW1.config.dump for device: ACCESS-SW1
+2025-08-24 04:05:36,417 - core.config_parser - DEBUG - Detected YAML format configuration for ACCESS-SW1
+2025-08-24 04:05:36,421 - core.config_parser - INFO - Successfully parsed configuration for ACCESS-SW1
+2025-08-24 04:05:36,421 - core.config_parser - INFO - Parsing configuration file: ACCESS-SW2.config.dump for device: ACCESS-SW2
+2025-08-24 04:05:36,421 - core.config_parser - DEBUG - Detected YAML format configuration for ACCESS-SW2
+2025-08-24 04:05:36,424 - core.config_parser - INFO - Successfully parsed configuration for ACCESS-SW2
+2025-08-24 04:05:36,424 - core.config_parser - INFO - Parsing configuration file: FW-1.config.dump for device: FW-1
+2025-08-24 04:05:36,424 - core.config_parser - DEBUG - Detected YAML format configuration for FW-1
+2025-08-24 04:05:36,427 - core.config_parser - INFO - Successfully parsed configuration for FW-1
+2025-08-24 04:05:36,427 - core.config_parser - INFO - Parsing configuration file: ACCESS-SW3.config.dump for device: ACCESS-SW3
+2025-08-24 04:05:36,427 - core.config_parser - DEBUG - Detected YAML format configuration for ACCESS-SW3
+2025-08-24 04:05:36,430 - core.config_parser - INFO - Successfully parsed configuration for ACCESS-SW3
+2025-08-24 04:05:36,430 - core.config_parser - INFO - Parsing configuration file: CORE-R1.config.dump for device: CORE-R1
+2025-08-24 04:05:36,430 - core.config_parser - DEBUG - Detected YAML format configuration for CORE-R1
+2025-08-24 04:05:36,433 - core.config_parser - INFO - Successfully parsed configuration for CORE-R1
+2025-08-24 04:05:36,434 - __main__ - WARNING - [WARN] Found 16 network issues:
+2025-08-24 04:05:36,434 - __main__ - WARNING -   - missing_spanning_tree: Device ACCESS-SW1 is missing spanning tree configuration for VLANs: {10, 99, 20} (Severity: warning)
+2025-08-24 04:05:36,434 - __main__ - WARNING -   - missing_spanning_tree: Device ACCESS-SW2 is missing spanning tree configuration for VLANs: {10, 99, 20} (Severity: warning)
+2025-08-24 04:05:36,434 - __main__ - WARNING -   - missing_spanning_tree: Device ACCESS-SW3 is missing spanning tree configuration for VLANs: {99, 30} (Severity: warning)
+2025-08-24 04:05:36,434 - __main__ - WARNING -   - multiple_gateways: Multiple potential gateways detected in network 10.1.1.0/30 (Severity: warning)
+2025-08-24 04:05:36,434 - __main__ - WARNING -   - multiple_gateways: Multiple potential gateways detected in network 10.1.3.0/30 (Severity: warning)
+2025-08-24 04:05:36,434 - __main__ - WARNING -   - multiple_gateways: Multiple potential gateways detected in network 10.1.4.0/30 (Severity: warning)
+2025-08-24 04:05:36,434 - __main__ - WARNING -   - multiple_gateways: Multiple potential gateways detected in network 10.1.2.0/30 (Severity: warning)
+2025-08-24 04:05:36,434 - __main__ - WARNING -   - multiple_gateways: Multiple potential gateways detected in network 10.1.5.0/30 (Severity: warning)
+2025-08-24 04:05:36,434 - __main__ - WARNING -   - multiple_gateways: Multiple potential gateways detected in network 192.168.100.0/30 (Severity: warning)
+2025-08-24 04:05:36,434 - __main__ - WARNING -   - bandwidth_variation: Device DIST-R1 has varying bandwidth across interfaces (Severity: info)
+2025-08-24 04:05:36,434 - __main__ - WARNING -   - bandwidth_variation: Device DIST-R2 has varying bandwidth across interfaces (Severity: info)
+2025-08-24 04:05:36,434 - __main__ - WARNING -   - bandwidth_variation: Device ACCESS-SW1 has varying bandwidth across interfaces (Severity: info)
+2025-08-24 04:05:36,434 - __main__ - WARNING -   - bandwidth_variation: Device ACCESS-SW2 has varying bandwidth across interfaces (Severity: info)
+2025-08-24 04:05:36,434 - __main__ - WARNING -   - bandwidth_variation: Device FW-1 has varying bandwidth across interfaces (Severity: info)
+2025-08-24 04:05:36,434 - __main__ - WARNING -   - bandwidth_variation: Device ACCESS-SW3 has varying bandwidth across interfaces (Severity: info)
+2025-08-24 04:05:36,434 - __main__ - WARNING -   - bandwidth_variation: Device CORE-R1 has varying bandwidth across interfaces (Severity: info)
+2025-08-24 04:05:36,435 - __main__ - INFO - ============================================================
+2025-08-24 04:05:36,435 - __main__ - INFO - STEP 4: TESTING LOAD ANALYSIS
+2025-08-24 04:05:36,435 - __main__ - INFO - ============================================================
+2025-08-24 04:05:36,435 - core.config_parser - INFO - Parsing configuration file: DIST-R1.config.dump for device: DIST-R1
+2025-08-24 04:05:36,435 - core.config_parser - DEBUG - Detected YAML format configuration for DIST-R1
+2025-08-24 04:05:36,438 - core.config_parser - INFO - Successfully parsed configuration for DIST-R1
+2025-08-24 04:05:36,438 - core.config_parser - INFO - Parsing configuration file: DIST-R2.config.dump for device: DIST-R2
+2025-08-24 04:05:36,438 - core.config_parser - DEBUG - Detected YAML format configuration for DIST-R2
+2025-08-24 04:05:36,441 - core.config_parser - INFO - Successfully parsed configuration for DIST-R2
+2025-08-24 04:05:36,442 - core.config_parser - INFO - Parsing configuration file: ACCESS-SW1.config.dump for device: ACCESS-SW1
+2025-08-24 04:05:36,442 - core.config_parser - DEBUG - Detected YAML format configuration for ACCESS-SW1
+2025-08-24 04:05:36,445 - core.config_parser - INFO - Successfully parsed configuration for ACCESS-SW1
+2025-08-24 04:05:36,445 - core.config_parser - INFO - Parsing configuration file: ACCESS-SW2.config.dump for device: ACCESS-SW2
+2025-08-24 04:05:36,445 - core.config_parser - DEBUG - Detected YAML format configuration for ACCESS-SW2
+2025-08-24 04:05:36,449 - core.config_parser - INFO - Successfully parsed configuration for ACCESS-SW2
+2025-08-24 04:05:36,449 - core.config_parser - INFO - Parsing configuration file: FW-1.config.dump for device: FW-1
+2025-08-24 04:05:36,449 - core.config_parser - DEBUG - Detected YAML format configuration for FW-1
+2025-08-24 04:05:36,451 - core.config_parser - INFO - Successfully parsed configuration for FW-1
+2025-08-24 04:05:36,451 - core.config_parser - INFO - Parsing configuration file: ACCESS-SW3.config.dump for device: ACCESS-SW3
+2025-08-24 04:05:36,451 - core.config_parser - DEBUG - Detected YAML format configuration for ACCESS-SW3
+2025-08-24 04:05:36,454 - core.config_parser - INFO - Successfully parsed configuration for ACCESS-SW3
+2025-08-24 04:05:36,454 - core.config_parser - INFO - Parsing configuration file: CORE-R1.config.dump for device: CORE-R1
+2025-08-24 04:05:36,454 - core.config_parser - DEBUG - Detected YAML format configuration for CORE-R1
+2025-08-24 04:05:36,457 - core.config_parser - INFO - Successfully parsed configuration for CORE-R1
+2025-08-24 04:05:36,457 - core.load_analyzer - INFO - Starting network load analysis...
+2025-08-24 04:05:36,458 - __main__ - INFO - [OK] Load Analysis Results:
+2025-08-24 04:05:36,458 - __main__ - INFO -   Total Network Capacity: 6000.0 Mbps
+2025-08-24 04:05:36,458 - __main__ - INFO -   Current Utilization: 1800.0 Mbps (30.0%)
+2025-08-24 04:05:36,458 - __main__ - INFO -   Overloaded Links: 0
+2025-08-24 04:05:36,458 - __main__ - INFO -   Underutilized Links: 0
+2025-08-24 04:05:36,458 - __main__ - INFO -   Capacity Issues: 0
+2025-08-24 04:05:36,458 - __main__ - INFO - ============================================================
+2025-08-24 04:05:36,458 - __main__ - INFO - GENERATING COMPREHENSIVE REPORTS
+2025-08-24 04:05:36,458 - __main__ - INFO - ============================================================
+2025-08-24 04:05:36,458 - __main__ - INFO - [OK] CLI report generated: outputs/test_results/enterprise/test_report.txt
+2025-08-24 04:05:36,458 - __main__ - INFO - [OK] JSON report generated: outputs/test_results/enterprise/test_results.json
+2025-08-24 04:05:36,459 - __main__ - INFO - [OK] HTML report generated: outputs/test_results/enterprise/test_report.html
+
+================================================================================
+[OK] ALL TESTS PASSED - Network Simulator is functioning correctly
+[INFO] Test results saved in: outputs/test_results/enterprise

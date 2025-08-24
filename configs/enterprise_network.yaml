@@ -1,0 +1,239 @@
+# Network simulation configuration for a basic enterprise network
+#
+# This configuration demonstrates:
+# - Multi-router topology
+# - VLAN configurations
+# - Fault injection scenarios
+# - Performance monitoring
+
+simulation:
+  duration: 120.0  # 120 seconds simulation time
+  real_time_factor: 0.1  # Run 10x faster than real time
+  inject_faults: true
+  output_dir: "./logs"
+
+devices:
+  - device:
+      name: "CoreRouter"
+      type: "router"
+      model: "Cisco_7600"
+      location: "DataCenter"
+    interfaces:
+      - name: "GigabitEthernet0/0"
+        ip_address: "10.0.1.1"
+        subnet_mask: "255.255.255.0"
+        status: "up"
+        bandwidth: 1000
+      - name: "GigabitEthernet0/1" 
+        ip_address: "10.0.2.1"
+        subnet_mask: "255.255.255.0"
+        status: "up"
+        bandwidth: 1000
+      - name: "Serial0/0/0"
+        ip_address: "172.16.1.1"
+        subnet_mask: "255.255.255.252"
+        status: "up"
+        bandwidth: 100
+    
+  - device:
+      name: "EdgeRouter1"
+      type: "router"
+      model: "Cisco_2900"
+      location: "Branch_Office_1"
+    interfaces:
+      - name: "GigabitEthernet0/0"
+        ip_address: "10.0.1.2"
+        subnet_mask: "255.255.255.0"
+        status: "up"
+        bandwidth: 1000
+      - name: "FastEthernet0/0"
+        ip_address: "192.168.10.1"
+        subnet_mask: "255.255.255.0"
+        status: "up"
+        bandwidth: 100
+        
+  - device:
+      name: "EdgeRouter2"
+      type: "router" 
+      model: "Cisco_2900"
+      location: "Branch_Office_2"
+    interfaces:
+      - name: "GigabitEthernet0/0"
+        ip_address: "10.0.2.2"
+        subnet_mask: "255.255.255.0"
+        status: "up"
+        bandwidth: 1000
+      - name: "FastEthernet0/0"
+        ip_address: "192.168.20.1"
+        subnet_mask: "255.255.255.0"
+        status: "up"
+        bandwidth: 100
+        
+  - device:
+      name: "AccessSwitch1"
+      type: "switch"
+      model: "Cisco_3750"
+      location: "Branch_Office_1"
+    interfaces:
+      - name: "GigabitEthernet1/0/1"
+        ip_address: "192.168.10.10"
+        subnet_mask: "255.255.255.0"
+        status: "up"
+        bandwidth: 1000
+      - name: "FastEthernet1/0/2"
+        status: "up"
+        bandwidth: 100
+        access_vlan: 10
+    vlans:
+      - vlan_id: 10
+        name: "USER_VLAN"
+        ip_address: "192.168.10.0"
+        subnet_mask: "255.255.255.0"
+        
+  - device:
+      name: "AccessSwitch2"
+      type: "switch"
+      model: "Cisco_3750" 
+      location: "Branch_Office_2"
+    interfaces:
+      - name: "GigabitEthernet1/0/1"
+        ip_address: "192.168.20.10"
+        subnet_mask: "255.255.255.0"
+        status: "up"
+        bandwidth: 1000
+      - name: "FastEthernet1/0/2"
+        status: "up"
+        bandwidth: 100
+        access_vlan: 20
+    vlans:
+      - vlan_id: 20
+        name: "USER_VLAN"
+        ip_address: "192.168.20.0"
+        subnet_mask: "255.255.255.0"
+        
+  - device:
+      name: "WAN_Router"
+      type: "router"
+      model: "Cisco_4000"
+      location: "ISP_Edge"
+    interfaces:
+      - name: "Serial0/0/0"
+        ip_address: "172.16.1.2"
+        subnet_mask: "255.255.255.252" 
+        status: "up"
+        bandwidth: 100
+      - name: "GigabitEthernet0/0"
+        ip_address: "203.0.113.1"
+        subnet_mask: "255.255.255.252"
+        status: "up"
+        bandwidth: 1000
+
+links:
+  - id: "core_to_edge1"
+    source: "CoreRouter"
+    target: "EdgeRouter1"
+    properties:
+      bandwidth: "1Gbps"
+      latency: "1ms"
+      mtu: 1500
+      
+  - id: "core_to_edge2"
+    source: "CoreRouter"
+    target: "EdgeRouter2"
+    properties:
+      bandwidth: "1Gbps"
+      latency: "1ms"
+      mtu: 1500
+      
+  - id: "edge1_to_switch1"
+    source: "EdgeRouter1"
+    target: "AccessSwitch1"
+    properties:
+      bandwidth: "100Mbps"
+      latency: "0.5ms"
+      mtu: 1500
+      
+  - id: "edge2_to_switch2"
+    source: "EdgeRouter2" 
+    target: "AccessSwitch2"
+    properties:
+      bandwidth: "100Mbps"
+      latency: "0.5ms"
+      mtu: 1500
+      
+  - id: "wan_connection"
+    source: "CoreRouter"
+    target: "WAN_Router"
+    properties:
+      bandwidth: "100Mbps"
+      latency: "10ms"
+      mtu: 1500
+
+# Fault injection scenarios
+fault_scenarios:
+  - name: "Link_Failure_Test"
+    type: "link_failure"
+    target: "core_to_edge1"
+    start_time: 30.0
+    duration: 15.0
+    description: "Simulate WAN link failure"
+    
+  - name: "MTU_Mismatch_Test"
+    type: "mtu_mismatch"
+    source: "EdgeRouter1"
+    target: "CoreRouter"
+    packet_size: 1600
+    interface_mtu: 1500
+    start_time: 45.0
+    description: "Simulate large packet vs small MTU"
+    
+  - name: "Interface_Down_Test"
+    type: "config_change"
+    target: "EdgeRouter2"
+    start_time: 60.0
+    changes:
+      interface_status:
+        interface: "FastEthernet0/0"
+        status: "down"
+    description: "Simulate interface failure"
+    
+  - name: "Multiple_Failures"
+    type: "link_failure"
+    target: "edge1_to_switch1"
+    start_time: 75.0
+    duration: 20.0
+    description: "Access link failure during other issues"
+
+# Protocol configurations
+protocols:
+  ospf:
+    enabled: true
+    hello_interval: 10.0
+    dead_interval: 40.0
+    areas:
+      - area_id: "0.0.0.0"
+        networks:
+          - "10.0.0.0/16"
+          - "172.16.0.0/12"
+          
+  arp:
+    enabled: true
+    timeout: 300.0
+    retry_count: 3
+    
+  neighbor_discovery:
+    enabled: true
+    hello_interval: 30.0
+
+# Monitoring and logging
+monitoring:
+  collect_interface_stats: true
+  collect_routing_stats: true  
+  collect_arp_stats: true
+  stat_collection_interval: 5.0
+  
+logging:
+  level: "INFO"
+  include_device_logs: true
+  include_event_logs: true
+  include_fault_logs: true
